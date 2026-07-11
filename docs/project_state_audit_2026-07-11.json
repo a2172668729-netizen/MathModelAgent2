@@ -1,0 +1,459 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-07-11",
+  "audit_time": "2026-07-11T21:43:15+08:00",
+  "audit_mode": "read_only_except_two_reports",
+  "repository": {
+    "root": "D:/Projects/MathModelAgent2",
+    "is_git_repository": true,
+    "detached_head": false,
+    "tracked_file_count": 360,
+    "commit_count": 2,
+    "default_remote_branch": null
+  },
+  "current_branch": "feature/real-problem-readiness",
+  "head": {
+    "commit": "2080faa77dfa05a824b6b1ab56d012938c4c6c46",
+    "parent": "b144c27937e7437e480f028521e7b1625ab118b8",
+    "subject": "feat: prepare real-problem benchmark workflow",
+    "committed_at": "2026-07-11T19:54:47+08:00"
+  },
+  "working_tree": {
+    "clean": false,
+    "staged_count": 0,
+    "modified_count": 8,
+    "untracked_file_count": 36,
+    "ignored_file_count": 20336,
+    "modified_files": [
+      ".gitignore",
+      "README.md",
+      "benchmarks/README.md",
+      "docs/benchmark_strategy.md",
+      "docs/decision_log.md",
+      "src/mmagent/cli.py",
+      "src/mmagent/tables.py",
+      "tests/test_plotting_tables.py"
+    ],
+    "untracked_groups": [
+      "benchmarks/baseline",
+      "benchmarks/cases/7-normal-plus-1-negative",
+      "benchmarks/known_issues.yaml",
+      "benchmarks/runtime",
+      "docs/benchmark_system.md",
+      "src/mmagent/benchmark_*.py",
+      "tests/test_benchmark_system.py"
+    ],
+    "unstaged_diff": {
+      "insertions": 109,
+      "deletions": 9
+    }
+  },
+  "remotes": [
+    {
+      "name": "origin",
+      "fetch_url": "https://github.com/a2172668729-netizen/MathModelAgent2.git",
+      "push_url": "https://github.com/a2172668729-netizen/MathModelAgent2.git",
+      "reachable": true,
+      "query_command": "git ls-remote --symref origin",
+      "query_exit_code": 0,
+      "refs": [],
+      "empty": true,
+      "default_branch": null
+    }
+  ],
+  "branches": [
+    {
+      "name": "feature/core-python-pdf-pipeline",
+      "head": "b144c27937e7437e480f028521e7b1625ab118b8",
+      "upstream": null,
+      "base": null,
+      "unique_commits_relative_to_canonical": [],
+      "fully_contained_by": ["feature/real-problem-readiness"],
+      "recommended_action": "retain_until_remote_backup_then_archive_or_keep_as_checkpoint"
+    },
+    {
+      "name": "feature/real-problem-readiness",
+      "head": "2080faa77dfa05a824b6b1ab56d012938c4c6c46",
+      "upstream": null,
+      "base": "b144c27937e7437e480f028521e7b1625ab118b8",
+      "unique_commits_relative_to_core": [
+        "2080faa77dfa05a824b6b1ab56d012938c4c6c46"
+      ],
+      "contains": ["feature/core-python-pdf-pipeline"],
+      "recommended_action": "canonical_candidate_after_preserving_and_committing_worktree"
+    }
+  ],
+  "commits": [
+    {
+      "hash": "b144c27937e7437e480f028521e7b1625ab118b8",
+      "parents": [],
+      "subject": "chore: establish verified assisted pipeline baseline",
+      "committed_at": "2026-07-11T14:40:24+08:00",
+      "pushed": false
+    },
+    {
+      "hash": "2080faa77dfa05a824b6b1ab56d012938c4c6c46",
+      "parents": ["b144c27937e7437e480f028521e7b1625ab118b8"],
+      "subject": "feat: prepare real-problem benchmark workflow",
+      "committed_at": "2026-07-11T19:54:47+08:00",
+      "pushed": false
+    }
+  ],
+  "worktrees": [
+    {
+      "path": "D:/Projects/MathModelAgent2",
+      "branch": "feature/real-problem-readiness",
+      "head": "2080faa77dfa05a824b6b1ab56d012938c4c6c46"
+    }
+  ],
+  "stashes": [],
+  "tags": [],
+  "reflog_only_important_commits": [],
+  "unreachable_objects": [],
+  "potentially_lost_work": [
+    {
+      "type": "unpushed_commits",
+      "severity": "Critical",
+      "count": 2
+    },
+    {
+      "type": "uncommitted_benchmark_batch",
+      "severity": "Critical",
+      "modified_files": 8,
+      "untracked_files": 36
+    },
+    {
+      "type": "ignored_benchmark_execution_evidence",
+      "severity": "Medium",
+      "path": "benchmark_results",
+      "files": 5697,
+      "bytes": 105965326
+    }
+  ],
+  "capabilities": [
+    {
+      "name": "core_python_execution_validation",
+      "status": "VERIFIED",
+      "evidence": ["tests/test_execution.py", "tests/test_core_integration.py", "69 passed"]
+    },
+    {
+      "name": "charts_and_tables",
+      "status": "VERIFIED",
+      "evidence": ["src/mmagent/plotting.py", "src/mmagent/tables.py", "tests/test_plotting_tables.py"]
+    },
+    {
+      "name": "chinese_xelatex",
+      "status": "VERIFIED",
+      "evidence": ["mmagent doctor", "tests/test_core_integration.py", "artifacts/environment_check/pdf/xelatex_chinese_acceptance.pdf"]
+    },
+    {
+      "name": "pdf_generation_and_structural_validation",
+      "status": "VERIFIED",
+      "evidence": ["src/mmagent/pdf.py", "current smoke benchmark", "workspaces/curve_fitting_demo/runs"]
+    },
+    {
+      "name": "human_page_by_page_acceptance",
+      "status": "PARTIAL",
+      "evidence": ["workspaces/curve_fitting_demo/review/review_report.yaml"],
+      "boundary": "final human approval pending"
+    },
+    {
+      "name": "second_independent_reproduction",
+      "status": "VERIFIED",
+      "evidence": ["workspaces/curve_fitting_demo/reproducibility_report.json"]
+    },
+    {
+      "name": "isolated_reviewer",
+      "status": "VERIFIED",
+      "evidence": ["workspaces/curve_fitting_demo/review/review_report.yaml", "tests/test_benchmark_system.py"],
+      "boundary": "workflow isolation, not OS sandbox"
+    },
+    {
+      "name": "human_approval_gate_enforcement",
+      "status": "VERIFIED",
+      "evidence": ["tests/test_core_state.py", "latest state AWAITING_HUMAN_APPROVAL"]
+    },
+    {
+      "name": "real_historical_problem_workspace",
+      "status": "PARTIAL",
+      "evidence": ["src/mmagent/real_problem.py", "tests/test_real_problem_readiness.py"],
+      "boundary": "no authorized real problem forward run present"
+    },
+    {
+      "name": "mmagent_new",
+      "status": "VERIFIED",
+      "evidence": ["CLI help", "tests/test_real_problem_readiness.py"]
+    },
+    {
+      "name": "mmagent_audit_input",
+      "status": "VERIFIED",
+      "evidence": ["src/mmagent/input_audit.py", "tests/test_real_problem_readiness.py"]
+    },
+    {
+      "name": "mmagent_advance",
+      "status": "VERIFIED",
+      "evidence": ["src/mmagent/real_problem.py", "tests/test_real_problem_readiness.py"]
+    },
+    {
+      "name": "mmagent_results_macros",
+      "status": "VERIFIED",
+      "evidence": ["src/mmagent/results_registry.py", "tests/test_real_problem_readiness.py"]
+    },
+    {
+      "name": "benchmark_readiness_workflow",
+      "status": "PARTIAL",
+      "evidence": ["current smoke 2/2", "expected failure observed", "benchmarks/baseline/current.json"],
+      "boundary": "uncommitted and synthetic; arbitrary real problems unproven"
+    },
+    {
+      "name": "attachment_diagnostics",
+      "status": "PARTIAL",
+      "evidence": ["src/mmagent/input_audit.py"],
+      "boundary": "probe/hash/metadata only; no comprehensive OCR or semantic extraction"
+    },
+    {
+      "name": "cumcm_typesetting",
+      "status": "PARTIAL",
+      "evidence": ["internal ctexart reports", "competition_profiles/cumcm/2026/official_spec.yaml"],
+      "boundary": "official specification remains provisional"
+    },
+    {
+      "name": "academic_humanizer",
+      "status": "DOCUMENTED_ONLY",
+      "evidence": ["skills/academic-humanizer-zh/SKILL.md", "docs/academic_humanizer_strategy.md"]
+    },
+    {
+      "name": "final_paper_delivery",
+      "status": "PARTIAL",
+      "evidence": ["workspaces/curve_fitting_demo/latest_run.json"],
+      "boundary": "no FINAL or FINALIZED workspace"
+    }
+  ],
+  "tests": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -p no:cacheprovider --basetemp <external>",
+      "exit_code": 0,
+      "collected": 69,
+      "passed": 69,
+      "failed": 0,
+      "duration_seconds": 25.83
+    },
+    {
+      "command": "python -m mmagent agent-doctor",
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": "python -m mmagent validate-workspace workspaces/example_problem",
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": "python -m mmagent validate-workspace workspaces/phase2_demo",
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": "python -m mmagent benchmark run --smoke --output <external>",
+      "exit_code": 0,
+      "status": "passed",
+      "cases": 2,
+      "cases_passed": 2
+    },
+    {
+      "command": "python -m mmagent benchmark run --case intentional_failure_diagnostic --output <external>",
+      "exit_code": 0,
+      "status": "expected_failure_observed"
+    },
+    {
+      "command": "full benchmark",
+      "status": "not_run",
+      "reason": "persisted 115-second baseline hash matches current source tree; smoke and negative checks used for this audit"
+    }
+  ],
+  "environment": {
+    "platform": "Windows-11-10.0.26100-SP0",
+    "python": "3.12.13",
+    "git": "available",
+    "xelatex": "available",
+    "latexmk": "available",
+    "kpsewhich": "available",
+    "pdftoppm": "available",
+    "pdftotext": "missing_optional",
+    "cjk_fonts": "available"
+  },
+  "artifacts": {
+    "example_problem": {
+      "stage": "CREATED",
+      "validation": "passed"
+    },
+    "phase2_demo": {
+      "stage": "PAPER_DRAFTED",
+      "workspace_validation": "passed",
+      "result_validation": "passed",
+      "pdf_acceptance": "blocked_historical",
+      "review": "blocked"
+    },
+    "curve_fitting_demo": {
+      "latest_run": "run-20260711t010942206919z",
+      "state": "AWAITING_HUMAN_APPROVAL",
+      "technical_status": "passed",
+      "human_approval": "pending",
+      "persisted_runs": 4,
+      "reproduction": "passed"
+    },
+    "benchmark_baseline": {
+      "run_id": "benchmark-20260711t132624924206z",
+      "status": "passed",
+      "mode": "full",
+      "normal_cases": 7,
+      "repetitions_per_case": 2,
+      "duration_seconds": 115.064385,
+      "source_tree_sha256": "6666c6ecb0f27a0c8548d892d826b4a9d38b7fe364df3c0bc720ed381c86eba1",
+      "current_tree_hash_matches": true
+    }
+  },
+  "risks": [
+    {
+      "id": "R-001",
+      "severity": "Critical",
+      "title": "All commits and latest work are local only",
+      "evidence": "empty remote, 2 unpushed commits, 8 modified and 36 untracked files",
+      "consequence": "total project and history loss",
+      "recommendation": "freeze edits, review, preserve and push"
+    },
+    {
+      "id": "R-002",
+      "severity": "Critical",
+      "title": "Benchmark batch is uncommitted",
+      "evidence": "untracked benchmark source/cases/tests/baseline and modified CLI/docs",
+      "consequence": "latest capability can disappear or be committed incompletely",
+      "recommendation": "human-review exact scope and commit coherently"
+    },
+    {
+      "id": "R-003",
+      "severity": "High",
+      "title": "Canonical main line is undefined",
+      "evidence": "only two feature branches and no remote default",
+      "consequence": "sessions continue from different assumptions",
+      "recommendation": "designate canonical branch after backup"
+    },
+    {
+      "id": "R-004",
+      "severity": "High",
+      "title": "Documentation advertises uncommitted or renamed commands",
+      "evidence": "README benchmark subcommands and stale real_problem_readiness scorecard command",
+      "consequence": "handoff users run unavailable or wrong commands",
+      "recommendation": "correct docs after accepting benchmark commit"
+    },
+    {
+      "id": "R-005",
+      "severity": "High",
+      "title": "Synthetic evidence may be overstated as competition readiness",
+      "evidence": "fixtures and curve demo are synthetic; no authorized real problem run",
+      "consequence": "invalid readiness claim",
+      "recommendation": "require real-problem forward evaluation"
+    },
+    {
+      "id": "R-006",
+      "severity": "High",
+      "title": "Final human gate is pending",
+      "evidence": "curve workspace AWAITING_HUMAN_APPROVAL",
+      "consequence": "unreviewed output treated as final",
+      "recommendation": "manual page and approval review"
+    },
+    {
+      "id": "R-007",
+      "severity": "Medium",
+      "title": "Historical reports can be mistaken for current status",
+      "evidence": "27, 42 and 69 test snapshots; historical blocked XeLaTeX",
+      "consequence": "confusing handoff",
+      "recommendation": "label dated snapshots and add current index"
+    },
+    {
+      "id": "R-008",
+      "severity": "Medium",
+      "title": "Ignored benchmark evidence is local only",
+      "evidence": "5697 ignored files under benchmark_results",
+      "consequence": "failure diagnostics lost",
+      "recommendation": "keep summary in Git and archive raw evidence externally if required"
+    },
+    {
+      "id": "R-009",
+      "severity": "Medium",
+      "title": "Windows and TeX portability not fully proven",
+      "evidence": "current TeX install is D:/texlive/2026",
+      "consequence": "clean-machine or macOS failures",
+      "recommendation": "run clean-machine cross-platform verification"
+    },
+    {
+      "id": "R-010",
+      "severity": "Medium",
+      "title": "Reviewer is not an OS sandbox",
+      "evidence": "process and copied-tree isolation only",
+      "consequence": "untrusted execution exceeds intended boundary",
+      "recommendation": "document threat model and sandbox untrusted code"
+    }
+  ],
+  "canonical_branch_recommendation": {
+    "branch": "feature/real-problem-readiness",
+    "confidence": "high_for_commit_topology",
+    "conditions": [
+      "preserve dirty work before branch operations",
+      "review and commit benchmark batch",
+      "rerun verification from committed tree",
+      "push and verify remote backup"
+    ],
+    "reason": "It strictly contains the core branch and all committed real-problem-readiness work."
+  },
+  "consolidation_plan": [
+    "Freeze development sessions.",
+    "Review 8 modified and 36 untracked files.",
+    "Create an approved external dirty-worktree backup and a safety reference at 2080faa.",
+    "Commit the intentional benchmark batch on the canonical branch or an approved temporary benchmark branch.",
+    "Rerun 69 tests, smoke, expected-failure diagnostic and full benchmark.",
+    "Push canonical and safety refs to origin and verify remote refs/upstream.",
+    "Establish an approved default remote branch.",
+    "Archive the core branch only after verified backup; no merge or cherry-pick is needed between existing branches.",
+    "Repair documentation drift in a separate commit."
+  ],
+  "next_actions": [
+    {
+      "priority": 1,
+      "action": "Preserve and remotely back up local work",
+      "requires_human_approval": true
+    },
+    {
+      "priority": 2,
+      "action": "Commit and fully revalidate benchmark batch",
+      "requires_human_approval": true
+    },
+    {
+      "priority": 3,
+      "action": "Resolve documentation and command drift",
+      "requires_human_approval": true
+    },
+    {
+      "priority": 4,
+      "action": "Run one authorized real historical problem forward evaluation",
+      "requires_human_approval": true
+    },
+    {
+      "priority": 5,
+      "action": "Complete human PDF and final approval gates",
+      "requires_human_approval": true
+    }
+  ],
+  "unresolved_questions": [
+    "Should the canonical branch be renamed to main after backup?",
+    "Should the benchmark batch be one commit or a reviewed sequence of commits?",
+    "Where should raw ignored benchmark run evidence be archived?",
+    "Which licensed historical problem should be used for the first forward evaluation?",
+    "Who is authorized to perform and record final human PDF approval?",
+    "Should optional pdftotext be added for text-extraction diagnostics?"
+  ],
+  "files_created_by_audit": [
+    "docs/project_state_audit_2026-07-11.md",
+    "docs/project_state_audit_2026-07-11.json"
+  ]
+}

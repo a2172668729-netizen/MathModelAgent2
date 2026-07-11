@@ -1,5 +1,13 @@
 # Decision log
 
+## 2026-07-11 — executable benchmark and regression system
+
+- Benchmark 正常基线使用七个仓库自建合成案例，负向故障夹具单独运行；不复制历史赛题，也不把参考实现冒充自动读题建模能力。
+- `--all` 表示全部正常案例单次执行，`--full` 表示全部正常案例默认双次执行并比较数值和结构结果；smoke 单次未做复现明确记录为 `not_run` warning。
+- Reviewer 通过独立子进程读取 attempt 的落盘副本，并用主 attempt 前后哈希证明未写回；这是工作流隔离而不是 OS 级安全沙箱。
+- PDF 自动质量分检查页数、启发式空白页、图片源、必要中文/替换字符和 overfull box；最终人工逐页视觉验收继续是 warning/人工门禁。
+- 首次全案例运行发现生产优化的预期目标区间错误：真实 `scipy.optimize.linprog` 结果为 1800 且两项资源均满足上界。该问题归类为 benchmark 设计错误，oracle 改为围绕 1800 的窄容差，没有放宽代码或安全门禁。
+
 ## 2026-07-11 — real-problem readiness v1
 
 - Real historical problems use a dedicated `workspace_kind: real_problem` and do not copy the curve-fitting demo solver.

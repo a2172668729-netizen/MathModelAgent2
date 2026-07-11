@@ -83,7 +83,7 @@ mmagent advance workspaces/cumcm-2020-a ANALYZED
 创建 workspace 时会生成 `benchmark_scorecard.yaml` 和 `.md`。题目理解、数据审计、模型选择依据、验证、可追溯性、论文完整度和可复现性均标为 `requires_human_score: true`，默认分数为空。代码执行成功率、人工介入次数、严重错误数和总运行时间只记录真实统计。修改 YAML 后运行：
 
 ```powershell
-mmagent benchmark workspaces/cumcm-2020-a
+mmagent benchmark-scorecard workspaces/cumcm-2020-a
 ```
 
 该命令校验评分表并重建 Markdown，不会自动填写主观分数。验证通过、论文草稿存在后，流程最多进入 `AWAITING_HUMAN_APPROVAL`；用户仍需检查模型选择、关键假设、验证结论、PDF 逐页视觉结果和 reviewer 证据，才能另行决定是否批准。
