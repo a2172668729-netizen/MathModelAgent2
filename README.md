@@ -4,6 +4,8 @@
 
 ## 当前可用能力
 
+- `mmagent new <problem_id>`：创建独立的真实历史题 workspace；接入流程见 [`docs/real_problem_readiness.md`](docs/real_problem_readiness.md)。
+- `mmagent audit-input / advance / results-macros / benchmark`：盘点原始材料、执行证据门禁、生成可追溯论文宏并维护人工评分表。
 - `mmagent init <workspace>`：安全创建标准 workspace，不覆盖已有文件。
 - `mmagent status <workspace>`：只读显示阶段、已完成阶段和缺失产物。
 - `mmagent validate-workspace <workspace>`：校验目录、YAML 数据模型和相对引用路径。

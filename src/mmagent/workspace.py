@@ -204,6 +204,26 @@ def validate_workspace(root: Path) -> ValidationReport:
         report.errors.append(f"workspace does not exist: {root}")
         return report
 
+    state_path = root / "state.yaml"
+    if state_path.is_file():
+        try:
+            raw_state = yaml.safe_load(state_path.read_text(encoding="utf-8"))
+        except (OSError, UnicodeError, yaml.YAMLError):
+            raw_state = None
+        if isinstance(raw_state, dict) and raw_state.get("workspace_kind") == "real_problem":
+            from mmagent.real_problem import next_gate_report, validate_real_structure
+
+            report.errors.extend(validate_real_structure(root))
+            if not report.errors:
+                gate = next_gate_report(root)
+                if gate is not None and gate.errors:
+                    report.warnings.append(
+                        f"workspace is incomplete at {raw_state.get('current_stage', 'unknown')}; "
+                        f"next gate {gate.target.value} is blocked"
+                    )
+                    report.warnings.extend(f"missing for {gate.target.value}: {error}" for error in gate.errors)
+            return report
+
     for relative in WORKSPACE_DIRECTORIES:
         if not (root / relative).is_dir():
             report.errors.append(f"missing directory: {relative}")

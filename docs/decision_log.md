@@ -1,5 +1,11 @@
 # Decision log
 
+## 2026-07-11 — real-problem readiness v1
+
+- Real historical problems use a dedicated `workspace_kind: real_problem` and do not copy the curve-fitting demo solver.
+- An incomplete blank workspace is structurally valid but reports its next evidence gate as blocked; missing competition material is not treated as a framework failure.
+- Subjective benchmark dimensions remain unset until a human supplies both a score and rationale. `REVIEWED` and `FINALIZED` are not automated transitions.
+
 ## 2026-07-10
 
 - Windows 11 为主开发环境，代码必须兼容 macOS。

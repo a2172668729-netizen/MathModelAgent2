@@ -20,6 +20,8 @@ from mmagent.core_pipeline import (
     validate_core_run,
 )
 from mmagent.environment import discover_tool, inspect_git
+from mmagent.benchmark import load_scorecard, write_scorecard
+from mmagent.input_audit import audit_inputs
 from mmagent.models import Status
 from mmagent.pdf import PdfPipelineError
 from mmagent.pipeline import (
@@ -32,6 +34,9 @@ from mmagent.pipeline import (
     validate_results,
 )
 from mmagent.workspace import cwd_is_writable, initialize_workspace, read_status, validate_workspace
+from mmagent.models import Stage
+from mmagent.real_problem import advance_real_stage, create_real_workspace
+from mmagent.results_registry import generate_latex_macros
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -40,6 +45,18 @@ def _build_parser() -> argparse.ArgumentParser:
     for name in ("init", "status", "validate-workspace", "validate-results", "render-report", "compile-report", "resume"):
         command = subparsers.add_parser(name)
         command.add_argument("workspace", type=Path)
+    new_command = subparsers.add_parser("new")
+    new_command.add_argument("problem_id")
+    new_command.add_argument("--root", type=Path, default=Path("workspaces"))
+    audit_input = subparsers.add_parser("audit-input")
+    audit_input.add_argument("workspace", type=Path)
+    advance = subparsers.add_parser("advance")
+    advance.add_argument("workspace", type=Path)
+    advance.add_argument("stage", choices=[stage.value for stage in Stage])
+    result_macros = subparsers.add_parser("results-macros")
+    result_macros.add_argument("workspace", type=Path)
+    benchmark = subparsers.add_parser("benchmark")
+    benchmark.add_argument("workspace", type=Path)
     demo = subparsers.add_parser("demo")
     demo.add_argument("target", help="'curve-fitting' or a legacy Phase 2 workspace path")
     demo.add_argument("--workspace", type=Path, help="output workspace for the curve-fitting demo")
@@ -80,6 +97,8 @@ def _doctor() -> int:
         "PyYAML": importlib.util.find_spec("yaml") is not None,
         "numpy": importlib.util.find_spec("numpy") is not None,
         "pandas": importlib.util.find_spec("pandas") is not None,
+        "openpyxl": importlib.util.find_spec("openpyxl") is not None,
+        "Pillow": importlib.util.find_spec("PIL") is not None,
         "scipy": importlib.util.find_spec("scipy") is not None,
         "matplotlib": importlib.util.find_spec("matplotlib") is not None,
         "pypdf": importlib.util.find_spec("pypdf") is not None,
@@ -144,6 +163,52 @@ def _doctor() -> int:
 
 def main(argv: list[str] | None = None) -> int:
     args = _build_parser().parse_args(argv)
+    if args.command == "new":
+        try:
+            root = create_real_workspace(args.problem_id, args.root)
+        except (OSError, ValueError) as exc:
+            print(f"ERROR: {exc}")
+            return 1
+        print(f"Workspace: {root}")
+        print("Current stage: CREATED")
+        print("NEXT: place the problem PDF and attachments in input/, then run audit-input")
+        return 0
+    if args.command == "audit-input":
+        try:
+            inventory = audit_inputs(args.workspace)
+        except (OSError, ValueError) as exc:
+            print(f"ERROR: {exc}")
+            return 1
+        print(f"Audited files: {len(inventory.files)}")
+        print(f"Readable files: {sum(item.read_success for item in inventory.files)}")
+        print("Reports: input_inventory.json, input_inventory.md")
+        return 0
+    if args.command == "advance":
+        try:
+            state = advance_real_stage(args.workspace, Stage(args.stage))
+        except (OSError, ValueError) as exc:
+            print(f"BLOCKED: {exc}")
+            return 2
+        print(f"PASS: advanced to {state.current_stage.value}")
+        return 0
+    if args.command == "results-macros":
+        try:
+            target = generate_latex_macros(args.workspace)
+        except (OSError, ValueError) as exc:
+            print(f"ERROR: {exc}")
+            return 1
+        print(f"PASS: {target}")
+        return 0
+    if args.command == "benchmark":
+        try:
+            scorecard = load_scorecard(args.workspace)
+            _, target = write_scorecard(args.workspace, scorecard)
+        except (OSError, ValueError) as exc:
+            print(f"ERROR: {exc}")
+            return 1
+        print(f"PASS: {target}")
+        print("Subjective scores remain human-only; blank scores were not filled.")
+        return 0
     if args.command == "init":
         try:
             result = initialize_workspace(args.workspace)

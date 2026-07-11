@@ -43,6 +43,7 @@ class Stage(StrEnum):
     FACT_CHECKED = "FACT_CHECKED"
     PDF_COMPILED = "PDF_COMPILED"
     FORMAT_CHECKED = "FORMAT_CHECKED"
+    AWAITING_HUMAN_APPROVAL = "AWAITING_HUMAN_APPROVAL"
     REVIEWED = "REVIEWED"
     FINALIZED = "FINALIZED"
     FAILED = "FAILED"
@@ -366,6 +367,7 @@ class PdfAcceptance(StrictModel):
 
 class WorkspaceState(StrictModel):
     schema_version: Literal["1.0"] = "1.0"
+    workspace_kind: Literal["legacy", "real_problem"] = "legacy"
     workspace_id: Identifier
     current_stage: Stage = Stage.CREATED
     completed_stages: list[Stage] = Field(default_factory=list)
