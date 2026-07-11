@@ -1,0 +1,7 @@
+selected_model_id: linear-least-squares
+compared_model_ids:
+- mean-baseline
+- linear-least-squares
+evidence:
+- Fixture contract fixes both candidates; run metrics decide only the comparison.
+approved_by_human: false

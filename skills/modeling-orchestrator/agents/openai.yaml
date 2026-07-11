@@ -1,0 +1,4 @@
+interface:
+  display_name: "Modeling Orchestrator"
+  short_description: "Coordinate artifact-first modeling stages and checkpoints"
+  default_prompt: "Use $modeling-orchestrator to inspect this workspace and advance only the next verified modeling stage."

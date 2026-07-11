@@ -1,0 +1,12 @@
+schema_version: "1.0"
+case_type: time_series_forecasting
+content_status: specification_only
+required_evidence:
+  - 时间索引、采样频率和预测区间
+  - 防止未来信息泄漏的切分方案
+  - 朴素或季节性基线
+  - 样本外误差与残差诊断
+prohibited_shortcuts:
+  - 使用测试区间调整训练参数
+  - 用随机划分替代有序时间验证而不解释
+

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Chinese Academic Humanizer"
+  short_description: "Polish Chinese academic prose without changing evidence"
+  default_prompt: "Use $academic-humanizer-zh to refine this validated Chinese modeling-paper passage while preserving every technical fact."
+

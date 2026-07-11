@@ -1,0 +1,5 @@
+interface:
+  display_name: "Problem Analysis"
+  short_description: "Structure modeling problems and trace every requirement"
+  default_prompt: "Use $problem-analysis to convert the supplied problem files into a traceable problem specification."
+

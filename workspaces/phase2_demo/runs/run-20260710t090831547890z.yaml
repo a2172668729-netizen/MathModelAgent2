@@ -1,0 +1,28 @@
+schema_version: '1.0'
+run_id: run-20260710t090831547890z
+stage: IMPLEMENTED
+status: passed
+started_at: '2026-07-10T09:08:31.547890Z'
+finished_at: '2026-07-10T09:08:31.736118Z'
+command:
+- python.exe
+- code/solve.py
+- --workspace
+- .
+python_version: 3.12.13
+platform: Windows-11-10.0.26100-SP0
+dependencies:
+  mathmodelagent: 0.1.0
+  pydantic: 2.13.4
+  PyYAML: 6.0.3
+random_seed: 0
+input_hashes:
+  input/observations.csv: 9426fdf0879873d1786fbcf59a2b1d09b6c97fe750c0e836db066b240c56590c
+  code/solve.py: 5fc4ab5808263f92be39742c66a99bafd49053fed44357ca14568dd981be221a
+parameters:
+  timeout_seconds: 120
+artifact_paths:
+- results/experiment.yaml
+- results/solver.stdout.log
+- results/solver.stderr.log
+- runs/run-20260710t090831547890z.yaml

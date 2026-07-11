@@ -1,0 +1,112 @@
+schema_version: "1.0"
+total_weight: 100
+items:
+  - id: problem_understanding
+    weight: 8
+    pass_criteria: 目标、输入、输出与题意一致且可追溯到原题。
+    failure_example: 把预测任务误写为因果识别。
+    severity: critical
+    hard_error: true
+  - id: subproblem_identification
+    weight: 5
+    pass_criteria: 所有子问题及依赖关系均被识别。
+    failure_example: 遗漏需要单独交付的第二问。
+    severity: error
+    hard_error: false
+  - id: objectives_constraints
+    weight: 8
+    pass_criteria: 目标、硬约束、软约束和变量边界具有结构化记录。
+    failure_example: 路径模型漏掉容量上限。
+    severity: critical
+    hard_error: true
+  - id: data_audit
+    weight: 7
+    pass_criteria: 来源、单位、缺失、异常、时间粒度和泄漏风险均有结论。
+    failure_example: 未检查单位便合并两个数据表。
+    severity: error
+    hard_error: false
+  - id: candidate_models
+    weight: 7
+    pass_criteria: 候选方案与数据条件、假设和任务类型匹配。
+    failure_example: 仅因模型复杂而选择深度学习。
+    severity: error
+    hard_error: false
+  - id: baseline
+    weight: 6
+    pass_criteria: 至少有一个可运行的简单基线并使用相同评价协议。
+    failure_example: 只报告复杂模型结果。
+    severity: error
+    hard_error: false
+  - id: model_selection
+    weight: 6
+    pass_criteria: 选择理由关联实际比较结果和人工确认。
+    failure_example: 没有证据即宣称某模型最佳。
+    severity: error
+    hard_error: false
+  - id: code_runnability
+    weight: 7
+    pass_criteria: 从声明入口可执行且失败信息明确。
+    failure_example: 代码依赖未提交的本机绝对路径。
+    severity: critical
+    hard_error: true
+  - id: reproducibility
+    weight: 7
+    pass_criteria: 输入哈希、依赖、随机种子、参数、命令和产物均被记录。
+    failure_example: 无法确认图表来自哪次运行。
+    severity: error
+    hard_error: false
+  - id: numeric_consistency
+    weight: 7
+    pass_criteria: 结构化结果、表格、图形和正文数字一致。
+    failure_example: 摘要指标与结果文件不同。
+    severity: critical
+    hard_error: true
+  - id: validation
+    weight: 7
+    pass_criteria: 按任务完成边界、敏感性、稳定性或样本外检查。
+    failure_example: 运行成功被当作模型正确。
+    severity: error
+    hard_error: false
+  - id: figures
+    weight: 5
+    pass_criteria: 坐标、单位、图例、来源和正文解释正确。
+    failure_example: 纵轴没有单位且结论依赖其尺度。
+    severity: error
+    hard_error: false
+  - id: literature
+    weight: 5
+    pass_criteria: 引用可定位、已核实且支持相邻主张。
+    failure_example: 引用不存在或无法支持结论。
+    severity: critical
+    hard_error: true
+  - id: paper_structure
+    weight: 3
+    pass_criteria: 摘要、假设、模型、求解、结果、评价和引用关系完整。
+    failure_example: 结论没有对应方法或实验章节。
+    severity: warning
+    hard_error: false
+  - id: cumcm_format
+    weight: 3
+    pass_criteria: 按已核实的当年官方规则检查且记录规则来源。
+    failure_example: 用旧社区模板冒充当年官方格式。
+    severity: critical
+    hard_error: true
+  - id: academic_language
+    weight: 3
+    pass_criteria: 中文学术表达清楚且没有改变技术事实。
+    failure_example: 润色时把相关关系改成因果关系。
+    severity: error
+    hard_error: false
+  - id: identity_leak
+    weight: 3
+    pass_criteria: 匿名提交范围内没有学校、姓名或指导教师信息。
+    failure_example: PDF 元数据或封面包含个人身份。
+    severity: critical
+    hard_error: true
+  - id: final_pdf
+    weight: 3
+    pass_criteria: PDF 已真实编译、结构检查并逐页视觉验收。
+    failure_example: 未编译源文件却标记 final。
+    severity: critical
+    hard_error: true
+

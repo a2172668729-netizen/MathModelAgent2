@@ -1,0 +1,15 @@
+﻿{
+    "started_at":  "2026-07-10T21:57:13.7859263+08:00",
+    "finished_at":  "2026-07-10T23:07:06.2165642+08:00",
+    "duration_seconds":  4192.431,
+    "exit_code":  0,
+    "command":  [
+                    "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\installer\\install-tl\\install-tl-20260710\\install-tl-windows.bat",
+                    "--profile",
+                    "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\installer\\texlive.profile",
+                    "--repository",
+                    "https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet",
+                    "--non-admin"
+                ],
+    "log":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\texlive-install-ustc.log"
+}

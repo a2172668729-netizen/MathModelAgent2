@@ -1,0 +1,170 @@
+﻿{
+    "schema_version":  "1.0",
+    "checked_at":  "2026-07-11T08:56:52.9144148+08:00",
+    "tex_bin":  "D:\\texlive\\2026\\bin\\windows",
+    "commands":  [
+                     {
+                         "id":  "where-xelatex",
+                         "file":  "where.exe",
+                         "arguments":  [
+                                           "xelatex"
+                                       ],
+                         "working_directory":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check",
+                         "started_at":  "2026-07-11T08:56:40.6467463+08:00",
+                         "finished_at":  "2026-07-11T08:56:41.6682557+08:00",
+                         "duration_seconds":  1.022,
+                         "exit_code":  0,
+                         "stdout":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\where-xelatex.stdout.log",
+                         "stderr":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\where-xelatex.stderr.log",
+                         "start_error":  null
+                     },
+                     {
+                         "id":  "xelatex-version",
+                         "file":  "xelatex.exe",
+                         "arguments":  [
+                                           "--version"
+                                       ],
+                         "working_directory":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check",
+                         "started_at":  "2026-07-11T08:56:41.6748997+08:00",
+                         "finished_at":  "2026-07-11T08:56:42.6895104+08:00",
+                         "duration_seconds":  1.015,
+                         "exit_code":  0,
+                         "stdout":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\xelatex-version.stdout.log",
+                         "stderr":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\xelatex-version.stderr.log",
+                         "start_error":  null
+                     },
+                     {
+                         "id":  "where-latexmk",
+                         "file":  "where.exe",
+                         "arguments":  [
+                                           "latexmk"
+                                       ],
+                         "working_directory":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check",
+                         "started_at":  "2026-07-11T08:56:42.6902057+08:00",
+                         "finished_at":  "2026-07-11T08:56:43.7051397+08:00",
+                         "duration_seconds":  1.015,
+                         "exit_code":  0,
+                         "stdout":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\where-latexmk.stdout.log",
+                         "stderr":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\where-latexmk.stderr.log",
+                         "start_error":  null
+                     },
+                     {
+                         "id":  "latexmk-version",
+                         "file":  "latexmk.exe",
+                         "arguments":  [
+                                           "-v"
+                                       ],
+                         "working_directory":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check",
+                         "started_at":  "2026-07-11T08:56:43.7051397+08:00",
+                         "finished_at":  "2026-07-11T08:56:44.7188280+08:00",
+                         "duration_seconds":  1.014,
+                         "exit_code":  0,
+                         "stdout":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\latexmk-version.stdout.log",
+                         "stderr":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\latexmk-version.stderr.log",
+                         "start_error":  null
+                     },
+                     {
+                         "id":  "tlmgr-scheme-full",
+                         "file":  "tlmgr.bat",
+                         "arguments":  [
+                                           "info",
+                                           "--only-installed",
+                                           "scheme-full"
+                                       ],
+                         "working_directory":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check",
+                         "started_at":  "2026-07-11T08:56:44.7198331+08:00",
+                         "finished_at":  "2026-07-11T08:56:47.7722238+08:00",
+                         "duration_seconds":  3.052,
+                         "exit_code":  0,
+                         "stdout":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\tlmgr-scheme-full.stdout.log",
+                         "stderr":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\tlmgr-scheme-full.stderr.log",
+                         "start_error":  null
+                     },
+                     {
+                         "id":  "kpsewhich-ctexart",
+                         "file":  "kpsewhich.exe",
+                         "arguments":  [
+                                           "ctexart.cls"
+                                       ],
+                         "working_directory":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check",
+                         "started_at":  "2026-07-11T08:56:47.7732233+08:00",
+                         "finished_at":  "2026-07-11T08:56:48.7846778+08:00",
+                         "duration_seconds":  1.011,
+                         "exit_code":  0,
+                         "stdout":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\kpsewhich-ctexart.stdout.log",
+                         "stderr":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\kpsewhich-ctexart.stderr.log",
+                         "start_error":  null
+                     },
+                     {
+                         "id":  "kpsewhich-booktabs",
+                         "file":  "kpsewhich.exe",
+                         "arguments":  [
+                                           "booktabs.sty"
+                                       ],
+                         "working_directory":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check",
+                         "started_at":  "2026-07-11T08:56:48.7846778+08:00",
+                         "finished_at":  "2026-07-11T08:56:49.8014979+08:00",
+                         "duration_seconds":  1.017,
+                         "exit_code":  0,
+                         "stdout":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\kpsewhich-booktabs.stdout.log",
+                         "stderr":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\kpsewhich-booktabs.stderr.log",
+                         "start_error":  null
+                     },
+                     {
+                         "id":  "kpsewhich-graphicx",
+                         "file":  "kpsewhich.exe",
+                         "arguments":  [
+                                           "graphicx.sty"
+                                       ],
+                         "working_directory":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check",
+                         "started_at":  "2026-07-11T08:56:49.8030346+08:00",
+                         "finished_at":  "2026-07-11T08:56:50.8129124+08:00",
+                         "duration_seconds":  1.01,
+                         "exit_code":  0,
+                         "stdout":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\kpsewhich-graphicx.stdout.log",
+                         "stderr":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\kpsewhich-graphicx.stderr.log",
+                         "start_error":  null
+                     },
+                     {
+                         "id":  "kpsewhich-amsmath",
+                         "file":  "kpsewhich.exe",
+                         "arguments":  [
+                                           "amsmath.sty"
+                                       ],
+                         "working_directory":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check",
+                         "started_at":  "2026-07-11T08:56:50.8139174+08:00",
+                         "finished_at":  "2026-07-11T08:56:51.8304403+08:00",
+                         "duration_seconds":  1.017,
+                         "exit_code":  0,
+                         "stdout":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\kpsewhich-amsmath.stdout.log",
+                         "stderr":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\kpsewhich-amsmath.stderr.log",
+                         "start_error":  null
+                     },
+                     {
+                         "id":  "latexmk-chinese-acceptance",
+                         "file":  "latexmk.exe",
+                         "arguments":  [
+                                           "-xelatex",
+                                           "-interaction=nonstopmode",
+                                           "-halt-on-error",
+                                           "main.tex"
+                                       ],
+                         "working_directory":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\source",
+                         "started_at":  "2026-07-11T08:56:51.8314406+08:00",
+                         "finished_at":  "2026-07-11T08:56:52.8508853+08:00",
+                         "duration_seconds":  1.019,
+                         "exit_code":  0,
+                         "stdout":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\latexmk-chinese-acceptance.stdout.log",
+                         "stderr":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\logs\\latexmk-chinese-acceptance.stderr.log",
+                         "start_error":  null
+                     }
+                 ],
+    "pdf":  {
+                "path":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\pdf\\xelatex_chinese_acceptance.pdf",
+                "exists":  true,
+                "size_bytes":  109232,
+                "header":  "%PDF-",
+                "sha256":  "65de5846b4cd61df9750e3fa3dab99f5dba46bfc51cbd73c348305c696679036"
+            },
+    "status":  "passed"
+}

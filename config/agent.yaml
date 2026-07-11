@@ -1,0 +1,83 @@
+schema_version: "1.0"
+name: MathModelAgent 2.0
+mode: assisted
+orchestrator: skills/modeling-orchestrator/SKILL.md
+max_stage_retries: 3
+max_concurrent_writers: 1
+capabilities:
+  local_artifact_workflow: enabled
+  python_execution: enabled
+  external_research: disabled
+  openai_api: disabled
+  rag: disabled
+  web_ui: disabled
+  database_service: disabled
+  parallel_agents: disabled
+human_checkpoints:
+  - ANALYZED
+  - MODEL_SELECTED
+  - VALIDATED
+  - FINALIZED
+stages:
+  - from: CREATED
+    to: INGESTED
+    owner: modeling-orchestrator
+    required_outputs: [input]
+  - from: INGESTED
+    to: ANALYZED
+    owner: problem-analysis
+    human_checkpoint: true
+    required_outputs: [problem_spec.yaml, assumptions.yaml]
+  - from: ANALYZED
+    to: DATA_READY
+    owner: data-audit
+    required_outputs: [data/metadata, reports/data_audit.md]
+  - from: DATA_READY
+    to: MODELS_PROPOSED
+    owner: model-design
+    required_outputs: [models/candidates, reports/model_comparison.md]
+  - from: MODELS_PROPOSED
+    to: MODEL_SELECTED
+    owner: model-design
+    human_checkpoint: true
+    required_outputs: [models/selected/selection.yaml, decisions.md]
+  - from: MODEL_SELECTED
+    to: IMPLEMENTED
+    owner: implementation
+    required_outputs: [code, results/experiment.yaml, run_manifest.yaml]
+  - from: IMPLEMENTED
+    to: VALIDATED
+    owner: validation
+    human_checkpoint: true
+    required_outputs: [results/validation.yaml]
+  - from: VALIDATED
+    to: PAPER_DRAFTED
+    owner: report-writing
+    required_outputs: [reports, paper]
+  - from: PAPER_DRAFTED
+    to: PAPER_HUMANIZED
+    owner: academic-humanizer-zh
+    required_outputs: [paper]
+  - from: PAPER_HUMANIZED
+    to: FACT_CHECKED
+    owner: validation
+    required_outputs: [reports/fact_check.yaml]
+  - from: FACT_CHECKED
+    to: PDF_COMPILED
+    owner: report-writing
+    required_outputs: [paper/main.pdf, reports/pdf_acceptance.yaml]
+  - from: PDF_COMPILED
+    to: FORMAT_CHECKED
+    owner: report-writing
+    required_outputs: [reports/pdf_acceptance.yaml]
+  - from: FORMAT_CHECKED
+    to: REVIEWED
+    owner: reviewer
+    isolated_context: true
+    write_scope: review
+    required_outputs: [review/review_report.yaml, review/review.md]
+  - from: REVIEWED
+    to: FINALIZED
+    owner: modeling-orchestrator
+    human_checkpoint: true
+    required_outputs: [final]

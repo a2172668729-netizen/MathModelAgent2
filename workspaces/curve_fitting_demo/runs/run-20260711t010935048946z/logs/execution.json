@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "run_id": "run-20260711t010935048946z",
+  "python_executable": "D:\\Projects\\MathModelAgent2\\.venv\\Scripts\\python.exe",
+  "python_version": "3.12.13",
+  "command": [
+    "D:\\Projects\\MathModelAgent2\\.venv\\Scripts\\python.exe",
+    "src/solve.py",
+    "--run-root",
+    "."
+  ],
+  "working_directory": ".",
+  "environment": {
+    "inherited_keys": [
+      "COMSPEC",
+      "NUMBER_OF_PROCESSORS",
+      "PATH",
+      "PATHEXT",
+      "PROCESSOR_ARCHITECTURE",
+      "SYSTEMDRIVE",
+      "SYSTEMROOT",
+      "TEMP",
+      "TMP",
+      "WINDIR"
+    ],
+    "set_keys": [
+      "HOME",
+      "USERPROFILE",
+      "PYTHONHASHSEED",
+      "PYTHONDONTWRITEBYTECODE",
+      "PYTHONPATH",
+      "MPLBACKEND",
+      "MPLCONFIGDIR",
+      "MMAGENT_NETWORK_DISABLED",
+      "MMAGENT_RUN_ROOT"
+    ],
+    "network_policy": "python_socket_blocked_by_sitecustomize",
+    "output_policy": "solver cwd and declared output root are the current run workspace"
+  },
+  "started_at": "2026-07-11T01:09:35.092508Z",
+  "finished_at": "2026-07-11T01:09:35.824165Z",
+  "duration_seconds": 0.740006,
+  "timeout_seconds": 120,
+  "exit_code": 0,
+  "timed_out": false,
+  "status": "passed",
+  "failure_reason": null,
+  "source": {
+    "path": "src/solve.py",
+    "sha256": "c74c0f15736037b9a8a148e78c814853e6186d57cf9a5951b676addc1b95cc1c"
+  },
+  "inputs": [
+    {
+      "path": "input/data.csv",
+      "size_bytes": 1148,
+      "sha256": "3e71a5205c255876a9b6eba2da71944d810b33cc1d82bf6457174aa30e4b3c9e"
+    },
+    {
+      "path": "input/problem.md",
+      "size_bytes": 310,
+      "sha256": "68379ece6e13ae914917c2a0ccf2a157c0ab23fceadd80b3199664d086b4200e"
+    }
+  ],
+  "produced_outputs": [
+    {
+      "path": "outputs/figure_data.csv",
+      "size_bytes": 2701,
+      "sha256": "457342748b6d766bf9858296d302596ac813173aab47345346c1ca93c943c7f0"
+    },
+    {
+      "path": "outputs/metrics.json",
+      "size_bytes": 394,
+      "sha256": "8fb4629c110de4e68d6da2ea13ba0a85068fcea3ff70c13ea6badd8ce50fbb62"
+    },
+    {
+      "path": "outputs/predictions.csv",
+      "size_bytes": 2701,
+      "sha256": "457342748b6d766bf9858296d302596ac813173aab47345346c1ca93c943c7f0"
+    }
+  ],
+  "stdout_path": "logs/python_stdout.log",
+  "stderr_path": "logs/python_stderr.log"
+}

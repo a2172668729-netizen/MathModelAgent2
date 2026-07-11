@@ -1,0 +1,69 @@
+schema_version: '1.0'
+status: blocked
+reviewed_at: '2026-07-10T09:19:00.101597Z'
+reviewer_context: isolated
+source_artifacts:
+- assumptions.md
+- assumptions.yaml
+- code/solve.py
+- data/metadata/observations.yaml
+- decisions.md
+- input/observations.csv
+- models/candidates/linear-least-squares.yaml
+- models/candidates/mean-baseline.yaml
+- models/selected/selection.yaml
+- paper/main.tex
+- problem_spec.yaml
+- reports/evidence_report.md
+- reports/pdf_acceptance.yaml
+- reports/report_manifest.yaml
+- results/experiment.yaml
+- results/solver.stderr.log
+- results/solver.stdout.log
+- results/validation.yaml
+- run_manifest.yaml
+- runs/run-20260710t090831547890z.yaml
+- state.yaml
+issues:
+- id: review-pdf-blocked
+  severity: critical
+  category: format
+  description: 'PDF acceptance is blocked: XeLaTeX was unavailable, compilation had zero attempts, and structural and visual checks were not run. No PDF artifact is available for acceptance.'
+  evidence_path: reports/pdf_acceptance.yaml
+  recommended_action: Install or provide an available XeLaTeX toolchain, compile the persisted source, then run and persist structural checks and page-by-page visual acceptance before any final status.
+  status: open
+- id: review-identity-not-run
+  severity: critical
+  category: identity
+  description: Identity and anonymity acceptance was not run. The source uses an anonymous example author label, but the persisted evidence does not establish that the compiled submission is free of identity leakage.
+  evidence_path: reports/pdf_acceptance.yaml
+  recommended_action: After successful compilation, inspect source metadata and every rendered page for personal, institutional, filesystem, and document-property identifiers, and persist the identity-check result.
+  status: open
+- id: review-human-checkpoint
+  severity: critical
+  category: logic
+  description: The selected model has approved_by_human set to false, and decisions.md explicitly says no competition checkpoint is claimed. The required human model-selection checkpoint is therefore incomplete.
+  evidence_path: models/selected/selection.yaml
+  recommended_action: Obtain and persist an explicit human decision on the model choice and its key assumptions before advancing beyond the draft or claiming review completion.
+  status: open
+- id: review-validation-provenance
+  severity: error
+  category: reproducibility
+  description: validation.yaml claims an independent recomputation, but the workspace contains no validator implementation, validation command, validator hash, or separate validation run manifest. Its primary evidence path points back to the experiment output.
+  evidence_path: results/validation.yaml
+  recommended_action: Persist the independent validator code and a validation run manifest containing the command, environment, input hashes, timestamps, and resulting findings.
+  status: open
+- id: review-formula-code-trace
+  severity: error
+  category: formula_code
+  description: The persisted solver contains only an import and call to mmagent.demo_solver.main. From workspace evidence alone, the reviewer cannot compare the reported least-squares formula and RMSE computation with the actual implementation.
+  evidence_path: code/solve.py
+  recommended_action: Persist the reviewable solver implementation in the workspace or include an immutable source artifact and hash for the exact dependency implementation used by the run.
+  status: open
+- id: review-synthetic-generalization
+  severity: warning
+  category: data
+  description: All five observations are project-authored synthetic points with the exact relation y = 2x + 1; sample-out validation was not run, so the zero training RMSE cannot support any real-world or competition generalization claim. The current artifacts disclose this limitation and make no such claim.
+  evidence_path: data/metadata/observations.yaml
+  recommended_action: Keep the synthetic-fixture disclaimer in every derived deliverable and do not generalize the result; use independent real or competition-authorized data and out-of-sample validation for any broader claim.
+  status: accepted_risk

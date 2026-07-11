@@ -1,0 +1,4 @@
+interface:
+  display_name: "Data Audit"
+  short_description: "Audit modeling datasets, units, quality, lineage, and leakage"
+  default_prompt: "Use $data-audit to inspect the workspace datasets and write a structured evidence-backed audit."

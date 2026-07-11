@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "status": "drafted",
+  "source_artifacts": [
+    "input/problem.md",
+    "outputs/metrics.json",
+    "outputs/predictions.csv",
+    "outputs/validation.json",
+    "outputs/claim_evidence.json",
+    "figures/fit_curve.png",
+    "figures/residuals.png",
+    "tables/parameters.tex",
+    "tables/metrics.tex"
+  ],
+  "generated_artifacts": [
+    "paper/main.tex"
+  ],
+  "format_claim": "internal ctexart engineering report; not an official competition template"
+}

@@ -1,0 +1,7 @@
+﻿{
+    "source":  "https://mirror.ctan.org/systems/texlive/tlnet/install-tl.zip.sha512",
+    "expected_sha512":  "b43dc5a4ab9d7e3696d67b776021bfbd66a47ff90ff667f454d06558d06fa0d533627ae0ad52f783c5e269bc4cb2a828446bdeeaec37b7ca3558420831c432de",
+    "actual_sha512":  "b43dc5a4ab9d7e3696d67b776021bfbd66a47ff90ff667f454d06558d06fa0d533627ae0ad52f783c5e269bc4cb2a828446bdeeaec37b7ca3558420831c432de",
+    "matches":  true,
+    "verified_at":  "2026-07-10T22:25:55.8364965+08:00"
+}

@@ -1,0 +1,16 @@
+schema_version: "1.0"
+language: zh-CN
+competition_profile: competition_profiles/cumcm/2026/official_spec.yaml
+template_status: internal_provisional
+compiler:
+  name: xelatex
+  passes: 2
+final_gates:
+  compile: required
+  structure: required
+  visual_page_review: required
+  identity_leak: required
+  format_profile: required
+  independent_review: required
+unverified_gate_status: not_run
+

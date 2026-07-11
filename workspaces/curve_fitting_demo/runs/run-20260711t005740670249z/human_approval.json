@@ -1,0 +1,6 @@
+{
+  "schema_version": "1.0",
+  "status": "pending",
+  "required_for": "FINAL",
+  "message": "Structural checks passed; page-by-page visual acceptance and final approval remain human gates."
+}

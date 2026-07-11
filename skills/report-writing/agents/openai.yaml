@@ -1,0 +1,4 @@
+interface:
+  display_name: "Evidence Report Writing"
+  short_description: "Write modeling reports only from validated structured artifacts"
+  default_prompt: "Use $report-writing to draft an evidence-backed modeling report from validated workspace artifacts."

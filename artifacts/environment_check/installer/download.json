@@ -1,0 +1,10 @@
+﻿{
+    "uri":  "https://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.exe",
+    "started_at":  "2026-07-10T21:49:03.3041521+08:00",
+    "finished_at":  "2026-07-10T21:49:24.3717321+08:00",
+    "exit_code":  0,
+    "stderr":  "",
+    "path":  "D:\\Projects\\MathModelAgent2\\artifacts\\environment_check\\installer\\install-tl-windows.exe",
+    "size_bytes":  20724140,
+    "sha256":  "668a70caff308e115ad583d04310466b420507e0254f54ee574608ea08a87d11"
+}

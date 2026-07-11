@@ -1,0 +1,35 @@
+schema_version: '1.0'
+problem_id: linear-demo
+title: 合成线性关系最小二乘验证示例（非竞赛数据）
+source_files:
+- input/observations.csv
+subproblems:
+- id: problem-1
+  prompt: 比较均值基线与一元线性最小二乘模型。
+  objective_ids:
+  - objective-1
+  constraint_ids:
+  - constraint-1
+  deliverables:
+  - 可复现实验结果
+  - 独立验证记录
+  - 证据报告
+objectives:
+- id: objective-1
+  description: 最小化样本内均方根误差
+  direction: minimize
+  metric: RMSE
+constraints:
+- id: constraint-1
+  description: 只使用给定的五个合成观测点
+  kind: data
+  source: input/observations.csv
+variables:
+- symbol: x
+  meaning: 解释变量
+  role: observed
+  unit: 无量纲
+- symbol: y
+  meaning: 响应变量
+  role: observed
+  unit: 无量纲

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Model Implementation"
+  short_description: "Implement approved models as reproducible Python runs"
+  default_prompt: "Use $implementation to implement the approved model and produce a reproducible experiment contract."
+

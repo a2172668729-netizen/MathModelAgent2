@@ -1,0 +1,7 @@
+{
+  "schema_version": "1.0",
+  "demo": "curve-fitting",
+  "model": "linear_least_squares_with_intercept",
+  "random_seed": 20260710,
+  "input_is_generated_once": true
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "status": "passed",
+  "tolerance": 1e-08,
+  "method": "independent_closed_form_ordinary_least_squares",
+  "checks": {
+    "slope": true,
+    "intercept": true,
+    "predictions": true,
+    "residuals": true,
+    "row_count": true,
+    "x_variance": true,
+    "residual_mean": true,
+    "linear_beats_mean_baseline": true,
+    "rmse": true,
+    "mae": true,
+    "r2": true,
+    "max_absolute_error": true
+  },
+  "expected": {
+    "parameters": {
+      "slope": 2.557204713033354,
+      "intercept": 3.1335039110989253
+    },
+    "metrics": {
+      "rmse": 0.8199391780580445,
+      "mae": 0.6476007559227368,
+      "r2": 0.9884643817615159,
+      "max_absolute_error": 1.8165114725679032
+    },
+    "mean_baseline_rmse": 7.634158995925904
+  },
+  "diagnostics": {
+    "residual_mean": -2.0600805012489018e-15,
+    "residual_standard_deviation_population": 0.8199391780580445
+  },
+  "findings": [
+    {
+      "id": "independent-recomputation",
+      "status": "passed",
+      "evidence": "outputs/metrics.json"
+    },
+    {
+      "id": "boundary-and-dimensions",
+      "status": "passed",
+      "evidence": "input/data.csv"
+    },
+    {
+      "id": "residual-mean",
+      "status": "passed",
+      "evidence": "outputs/predictions.csv"
+    },
+    {
+      "id": "mean-baseline",
+      "status": "passed",
+      "evidence": "input/data.csv"
+    },
+    {
+      "id": "sample-out-validation",
+      "status": "not_run",
+      "reason": "Synthetic engineering fixture is evaluated in-sample and makes no generalization claim."
+    },
+    {
+      "id": "sensitivity-analysis",
+      "status": "not_run",
+      "reason": "No model-selection or causal claim depends on sensitivity analysis in this fixture."
+    }
+  ]
+}

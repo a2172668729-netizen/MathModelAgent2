@@ -1,0 +1,30 @@
+schema_version: '1.0'
+workspace_id: linear-demo
+current_stage: PAPER_DRAFTED
+completed_stages:
+- CREATED
+- INGESTED
+- ANALYZED
+- DATA_READY
+- MODELS_PROPOSED
+- MODEL_SELECTED
+- IMPLEMENTED
+- VALIDATED
+- PAPER_DRAFTED
+artifacts:
+  problem_spec: problem_spec.yaml
+  assumptions_data: assumptions.yaml
+  dataset_metadata: data/metadata/observations.yaml
+  baseline_model: models/candidates/mean-baseline.yaml
+  selected_model: models/selected/selection.yaml
+  solver: code/solve.py
+  run_manifest: run_manifest.yaml
+  experiment: results/experiment.yaml
+  solver_stdout: results/solver.stdout.log
+  solver_stderr: results/solver.stderr.log
+  validation: results/validation.yaml
+  evidence_report: reports/evidence_report.md
+  paper_source: paper/main.tex
+  report_manifest: reports/report_manifest.yaml
+  pdf_acceptance: reports/pdf_acceptance.yaml
+updated_at: '2026-07-10T09:10:54.071109Z'

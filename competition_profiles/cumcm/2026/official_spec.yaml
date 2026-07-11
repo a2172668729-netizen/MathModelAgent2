@@ -1,0 +1,21 @@
+schema_version: "1.0"
+competition: CUMCM
+year: 2026
+verification_status: provisional
+checked_at: "2026-07-10"
+official_sources: []
+rules:
+  - id: official_template
+    status: not_verified
+    value: null
+    note: 不把任何社区模板视为 2026 官方模板。
+  - id: anonymity
+    status: provisional
+    value: true
+    note: 默认执行严格匿名检查，最终以当年官方规则为准。
+  - id: compiler
+    status: project_default
+    value: xelatex
+    note: 这是项目实现选择，不是官方规则声明。
+release_gate: official_sources 非空且所有比赛规则完成来源核验后，才可把 verification_status 改为 verified。
+

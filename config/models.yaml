@@ -1,0 +1,11 @@
+schema_version: "1.0"
+selection_policy:
+  baseline_required: true
+  minimum_candidates: 2
+  human_approval_required: true
+  common_evaluation_protocol_required: true
+  selection_evidence_required: true
+providers:
+  configured: []
+  note: Phase 3 Skills do not call an external model API; Codex operates on local artifacts.
+

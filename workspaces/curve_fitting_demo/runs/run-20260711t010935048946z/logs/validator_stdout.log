@@ -1,0 +1,1 @@
+{"status": "passed", "checks": {"slope": true, "intercept": true, "predictions": true, "residuals": true, "row_count": true, "x_variance": true, "residual_mean": true, "linear_beats_mean_baseline": true, "rmse": true, "mae": true, "r2": true, "max_absolute_error": true}}

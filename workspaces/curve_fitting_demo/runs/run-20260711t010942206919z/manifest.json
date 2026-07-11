@@ -1,0 +1,653 @@
+{
+  "schema_version": "2.0",
+  "project_version": "0.1.0",
+  "run_id": "run-20260711t010942206919z",
+  "created_at": "2026-07-11T01:09:42.206919Z",
+  "operating_system": "Windows-11-10.0.26100-SP0",
+  "python_executable": "D:\\Projects\\MathModelAgent2\\.venv\\Scripts\\python.exe",
+  "python_version": "3.12.13",
+  "dependencies": {
+    "mathmodelagent": "0.1.0",
+    "numpy": "2.5.1",
+    "pandas": "3.0.3",
+    "scipy": "1.18.0",
+    "matplotlib": "3.11.0",
+    "pypdf": "6.14.2",
+    "PyMuPDF": "1.28.0"
+  },
+  "random_seed": 20260710,
+  "working_directory": ".",
+  "state_history": [
+    "CREATED",
+    "INPUT_READY",
+    "CODE_READY",
+    "CODE_EXECUTED",
+    "RESULTS_VALIDATED",
+    "FIGURES_GENERATED",
+    "TABLES_GENERATED",
+    "PAPER_DRAFTED",
+    "PDF_COMPILED",
+    "PDF_VALIDATED",
+    "REPRODUCIBILITY_VALIDATED",
+    "AWAITING_HUMAN_APPROVAL"
+  ],
+  "status": "passed",
+  "validation": {
+    "numeric_results": {
+      "schema_version": "1.0",
+      "status": "passed",
+      "tolerance": 1e-08,
+      "method": "independent_closed_form_ordinary_least_squares",
+      "checks": {
+        "slope": true,
+        "intercept": true,
+        "predictions": true,
+        "residuals": true,
+        "row_count": true,
+        "x_variance": true,
+        "residual_mean": true,
+        "linear_beats_mean_baseline": true,
+        "rmse": true,
+        "mae": true,
+        "r2": true,
+        "max_absolute_error": true
+      },
+      "expected": {
+        "parameters": {
+          "slope": 2.557204713033354,
+          "intercept": 3.1335039110989253
+        },
+        "metrics": {
+          "rmse": 0.8199391780580445,
+          "mae": 0.6476007559227368,
+          "r2": 0.9884643817615159,
+          "max_absolute_error": 1.8165114725679032
+        },
+        "mean_baseline_rmse": 7.634158995925904
+      },
+      "diagnostics": {
+        "residual_mean": -2.0600805012489018e-15,
+        "residual_standard_deviation_population": 0.8199391780580445
+      },
+      "findings": [
+        {
+          "id": "independent-recomputation",
+          "status": "passed",
+          "evidence": "outputs/metrics.json"
+        },
+        {
+          "id": "boundary-and-dimensions",
+          "status": "passed",
+          "evidence": "input/data.csv"
+        },
+        {
+          "id": "residual-mean",
+          "status": "passed",
+          "evidence": "outputs/predictions.csv"
+        },
+        {
+          "id": "mean-baseline",
+          "status": "passed",
+          "evidence": "input/data.csv"
+        },
+        {
+          "id": "sample-out-validation",
+          "status": "not_run",
+          "reason": "Synthetic engineering fixture is evaluated in-sample and makes no generalization claim."
+        },
+        {
+          "id": "sensitivity-analysis",
+          "status": "not_run",
+          "reason": "No model-selection or causal claim depends on sensitivity analysis in this fixture."
+        }
+      ]
+    },
+    "pdf": {
+      "schema_version": "1.0",
+      "checked_at": "2026-07-11T01:09:48.024605Z",
+      "status": "passed",
+      "pdf_path": "paper/main.pdf",
+      "size_bytes": 315529,
+      "sha256": "774860689a26456c631b161770511ef21068baaa0fa875e6ac0812c49298ad9a",
+      "header_valid": true,
+      "page_count": 4,
+      "serious_log_findings": {
+        "latex_errors": 0,
+        "missing_files": 0,
+        "undefined_references": 0,
+        "undefined_citations": 0
+      },
+      "box_warnings": {
+        "overfull_boxes": 0,
+        "underfull_boxes": 0
+      },
+      "identity_hits": [],
+      "absolute_path_hits": [],
+      "preview": {
+        "page_count": 4,
+        "all_pages": [
+          "paper/preview/all/page-001.png",
+          "paper/preview/all/page-002.png",
+          "paper/preview/all/page-003.png",
+          "paper/preview/all/page-004.png"
+        ],
+        "selected_pages": {
+          "first": "paper/preview/first-page-001.png",
+          "main_figure": "paper/preview/main_figure-page-003.png",
+          "last": "paper/preview/last-page-004.png"
+        }
+      },
+      "visual_check": "awaiting_human_approval"
+    }
+  },
+  "failure_reason": null,
+  "human_approval_status": "pending",
+  "current_state": "AWAITING_HUMAN_APPROVAL",
+  "execution": {
+    "schema_version": "1.0",
+    "run_id": "run-20260711t010942206919z",
+    "python_executable": "D:\\Projects\\MathModelAgent2\\.venv\\Scripts\\python.exe",
+    "python_version": "3.12.13",
+    "command": [
+      "D:\\Projects\\MathModelAgent2\\.venv\\Scripts\\python.exe",
+      "src/solve.py",
+      "--run-root",
+      "."
+    ],
+    "working_directory": ".",
+    "environment": {
+      "inherited_keys": [
+        "COMSPEC",
+        "NUMBER_OF_PROCESSORS",
+        "PATH",
+        "PATHEXT",
+        "PROCESSOR_ARCHITECTURE",
+        "SYSTEMDRIVE",
+        "SYSTEMROOT",
+        "TEMP",
+        "TMP",
+        "WINDIR"
+      ],
+      "set_keys": [
+        "HOME",
+        "USERPROFILE",
+        "PYTHONHASHSEED",
+        "PYTHONDONTWRITEBYTECODE",
+        "PYTHONPATH",
+        "MPLBACKEND",
+        "MPLCONFIGDIR",
+        "MMAGENT_NETWORK_DISABLED",
+        "MMAGENT_RUN_ROOT"
+      ],
+      "network_policy": "python_socket_blocked_by_sitecustomize",
+      "output_policy": "solver cwd and declared output root are the current run workspace"
+    },
+    "started_at": "2026-07-11T01:09:42.223858Z",
+    "finished_at": "2026-07-11T01:09:42.916313Z",
+    "duration_seconds": 0.692785,
+    "timeout_seconds": 120,
+    "exit_code": 0,
+    "timed_out": false,
+    "status": "passed",
+    "failure_reason": null,
+    "source": {
+      "path": "src/solve.py",
+      "sha256": "c74c0f15736037b9a8a148e78c814853e6186d57cf9a5951b676addc1b95cc1c"
+    },
+    "inputs": [
+      {
+        "path": "input/data.csv",
+        "size_bytes": 1148,
+        "sha256": "3e71a5205c255876a9b6eba2da71944d810b33cc1d82bf6457174aa30e4b3c9e"
+      },
+      {
+        "path": "input/problem.md",
+        "size_bytes": 310,
+        "sha256": "68379ece6e13ae914917c2a0ccf2a157c0ab23fceadd80b3199664d086b4200e"
+      }
+    ],
+    "produced_outputs": [
+      {
+        "path": "outputs/figure_data.csv",
+        "size_bytes": 2701,
+        "sha256": "457342748b6d766bf9858296d302596ac813173aab47345346c1ca93c943c7f0"
+      },
+      {
+        "path": "outputs/metrics.json",
+        "size_bytes": 394,
+        "sha256": "8fb4629c110de4e68d6da2ea13ba0a85068fcea3ff70c13ea6badd8ce50fbb62"
+      },
+      {
+        "path": "outputs/predictions.csv",
+        "size_bytes": 2701,
+        "sha256": "457342748b6d766bf9858296d302596ac813173aab47345346c1ca93c943c7f0"
+      }
+    ],
+    "stdout_path": "logs/python_stdout.log",
+    "stderr_path": "logs/python_stderr.log"
+  },
+  "validator_execution": {
+    "schema_version": "1.0",
+    "run_id": "run-20260711t010942206919z",
+    "python_executable": "D:\\Projects\\MathModelAgent2\\.venv\\Scripts\\python.exe",
+    "python_version": "3.12.13",
+    "command": [
+      "D:\\Projects\\MathModelAgent2\\.venv\\Scripts\\python.exe",
+      "src/validate.py",
+      "--run-root",
+      "."
+    ],
+    "working_directory": ".",
+    "environment": {
+      "inherited_keys": [
+        "COMSPEC",
+        "NUMBER_OF_PROCESSORS",
+        "PATH",
+        "PATHEXT",
+        "PROCESSOR_ARCHITECTURE",
+        "SYSTEMDRIVE",
+        "SYSTEMROOT",
+        "TEMP",
+        "TMP",
+        "WINDIR"
+      ],
+      "set_keys": [
+        "HOME",
+        "USERPROFILE",
+        "PYTHONHASHSEED",
+        "PYTHONDONTWRITEBYTECODE",
+        "PYTHONPATH",
+        "MPLBACKEND",
+        "MPLCONFIGDIR",
+        "MMAGENT_NETWORK_DISABLED",
+        "MMAGENT_RUN_ROOT"
+      ],
+      "network_policy": "python_socket_blocked_by_sitecustomize",
+      "output_policy": "solver cwd and declared output root are the current run workspace"
+    },
+    "started_at": "2026-07-11T01:09:42.927311Z",
+    "finished_at": "2026-07-11T01:09:43.301318Z",
+    "duration_seconds": 0.374307,
+    "timeout_seconds": 120,
+    "exit_code": 0,
+    "timed_out": false,
+    "status": "passed",
+    "failure_reason": null,
+    "source": {
+      "path": "src/validate.py",
+      "sha256": "6936bb1d32e8f372dbc878d0f4c35baa6ce1b70af523d9fd18887ae30492e3d9"
+    },
+    "inputs": [
+      {
+        "path": "input/data.csv",
+        "size_bytes": 1148,
+        "sha256": "3e71a5205c255876a9b6eba2da71944d810b33cc1d82bf6457174aa30e4b3c9e"
+      },
+      {
+        "path": "outputs/metrics.json",
+        "size_bytes": 394,
+        "sha256": "8fb4629c110de4e68d6da2ea13ba0a85068fcea3ff70c13ea6badd8ce50fbb62"
+      },
+      {
+        "path": "outputs/predictions.csv",
+        "size_bytes": 2701,
+        "sha256": "457342748b6d766bf9858296d302596ac813173aab47345346c1ca93c943c7f0"
+      }
+    ],
+    "produced_outputs": [
+      {
+        "path": "outputs/figure_data.csv",
+        "size_bytes": 2701,
+        "sha256": "457342748b6d766bf9858296d302596ac813173aab47345346c1ca93c943c7f0"
+      },
+      {
+        "path": "outputs/metrics.json",
+        "size_bytes": 394,
+        "sha256": "8fb4629c110de4e68d6da2ea13ba0a85068fcea3ff70c13ea6badd8ce50fbb62"
+      },
+      {
+        "path": "outputs/predictions.csv",
+        "size_bytes": 2701,
+        "sha256": "457342748b6d766bf9858296d302596ac813173aab47345346c1ca93c943c7f0"
+      },
+      {
+        "path": "outputs/validation.json",
+        "size_bytes": 1809,
+        "sha256": "0aabc85f3f42d5d75bea302a72164fd8aca0ed308fc15fd46c3097946307d474"
+      }
+    ],
+    "stdout_path": "logs/validator_stdout.log",
+    "stderr_path": "logs/validator_stderr.log"
+  },
+  "selected_cjk_font": "Microsoft YaHei",
+  "latex_execution": {
+    "schema_version": "1.0",
+    "command": [
+      "D:\\texlive\\2026\\bin\\windows\\latexmk.exe",
+      "-xelatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "main.tex"
+    ],
+    "working_directory": "paper",
+    "started_at": "2026-07-11T01:09:43.662189Z",
+    "finished_at": "2026-07-11T01:09:47.739318Z",
+    "duration_seconds": 4.074262,
+    "timeout_seconds": 300,
+    "timed_out": false,
+    "exit_code": 0,
+    "status": "passed",
+    "source_path": "paper/main.tex",
+    "pdf_path": "paper/main.pdf",
+    "latexmk_log": "logs/latexmk.log",
+    "xelatex_log": "logs/xelatex.log"
+  },
+  "tex_tools": {
+    "xelatex": {
+      "path": "D:\\texlive\\2026\\bin\\windows\\xelatex.exe",
+      "exit_code": 0,
+      "version": "XeTeX 3.141592653-2.6-0.999998 (TeX Live 2026)",
+      "output": "XeTeX 3.141592653-2.6-0.999998 (TeX Live 2026)\nkpathsea version 6.4.2\nCopyright 2026 SIL International, Jonathan Kew and Khaled Hosny.\nThere is NO warranty.  Redistribution of this software is\ncovered by the terms of both the XeTeX copyright and\nthe Lesser GNU General Public License.\nFor more information about these matters, see the file\nnamed COPYING and the XeTeX source.\nPrimary author of XeTeX: Jonathan Kew.\nCompiled with ICU version 78.2; using 78.2\nCompiled with zlib version 1.3.2; using 1.3.2\nCompiled with FreeType2 version 2.14.1; using 2.14.1\nCompiled with Graphite2 version 1.3.14; using 1.3.14\nCompiled with HarfBuzz version 12.3.2; using 12.3.2\nCompiled with libpng version 1.6.55; using 1.6.55\nCompiled with pplib version v2.2\nCompiled with fontconfig version 2.15.0; using 2.15.0"
+    },
+    "latexmk": {
+      "path": "D:\\texlive\\2026\\bin\\windows\\latexmk.exe",
+      "exit_code": 0,
+      "version": "Initial Win CP for (console input, console output, system): (CP936, CP65001, CP936)",
+      "output": "Initial Win CP for (console input, console output, system): (CP936, CP65001, CP936)\nI changed them all to CP936\nLatexmk, John Collins, 9 March 2026. Version 4.88\n\nperl: warning: Setting locale failed.\nperl: warning: Please check that your locale settings:\n\tLC_ALL = \"C.UTF-8\",\n\tLC_CTYPE = \"C\",\n\tLC_NUMERIC = \"C\",\n\tLC_COLLATE = \"C\",\n\tLC_TIME = (unset),\n\tLC_MONETARY = (unset),\n\tLANG = \"C.UTF-8\"\n    are supported and installed on your system.\nperl: warning: Falling back to the system default locale (\"Chinese (Simplified)_China.936\").\nReverting Windows console CPs to (in,out) = (936,65001)"
+    },
+    "kpsewhich": {
+      "path": "D:\\texlive\\2026\\bin\\windows\\kpsewhich.exe",
+      "exit_code": 0,
+      "version": "kpathsea version 6.4.2",
+      "output": "kpathsea version 6.4.2\nCopyright 2026 Karl Berry & Olaf Weber.\nLicense LGPLv2.1+: GNU Lesser GPL version 2.1 or later <https://gnu.org/licenses/lgpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law."
+    }
+  },
+  "execution_commands": {
+    "python": [
+      "D:\\Projects\\MathModelAgent2\\.venv\\Scripts\\python.exe",
+      "src/solve.py",
+      "--run-root",
+      "."
+    ],
+    "validator": [
+      "D:\\Projects\\MathModelAgent2\\.venv\\Scripts\\python.exe",
+      "src/validate.py",
+      "--run-root",
+      "."
+    ],
+    "latex": [
+      "D:\\texlive\\2026\\bin\\windows\\latexmk.exe",
+      "-xelatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "main.tex"
+    ]
+  },
+  "exit_codes": {
+    "python": 0,
+    "validator": 0,
+    "latex": 0
+  },
+  "inputs": [
+    {
+      "path": "input/data.csv",
+      "size_bytes": 1148,
+      "sha256": "3e71a5205c255876a9b6eba2da71944d810b33cc1d82bf6457174aa30e4b3c9e"
+    },
+    {
+      "path": "input/problem.md",
+      "size_bytes": 310,
+      "sha256": "68379ece6e13ae914917c2a0ccf2a157c0ab23fceadd80b3199664d086b4200e"
+    }
+  ],
+  "python_sources": [
+    {
+      "path": "src/pipeline/artifacts.py",
+      "size_bytes": 2022,
+      "sha256": "b1ad975560481a0967b33a14dfb3da9746171523d7b99843a7811441b9ed4db4"
+    },
+    {
+      "path": "src/pipeline/core_models.py",
+      "size_bytes": 2602,
+      "sha256": "4d7e13c43b6340e6176360d330675d4687bd03a213a131fe43b2136dd05aafb2"
+    },
+    {
+      "path": "src/pipeline/core_pipeline.py",
+      "size_bytes": 20768,
+      "sha256": "d8f704a042c6b9ea653158ca0da796f0834bb2a89dea40e4954ca1ed26ea59c0"
+    },
+    {
+      "path": "src/pipeline/execution.py",
+      "size_bytes": 7822,
+      "sha256": "b04a32930f0202b7932eae27814c4568be94fd24f4d533cca8534ea5643670fb"
+    },
+    {
+      "path": "src/pipeline/latex.py",
+      "size_bytes": 7413,
+      "sha256": "2d19bb7dc2d672eb7e16102cafa9be75631e38e3555768457fd5f66faa07a11e"
+    },
+    {
+      "path": "src/pipeline/pdf.py",
+      "size_bytes": 9719,
+      "sha256": "0984415d0951fa80832949e3052d3cbaac266014be6b09cc769b53c9359a0f32"
+    },
+    {
+      "path": "src/pipeline/plotting.py",
+      "size_bytes": 5577,
+      "sha256": "3db3ad8b707a934d295f9846c1148988bdb01cef9db90bc684adbde508b0dfeb"
+    },
+    {
+      "path": "src/pipeline/tables.py",
+      "size_bytes": 4160,
+      "sha256": "0ecd97269dd7e611c24463753f997710a1117ba092fcc1cdbea1bfc8ca7be0b4"
+    },
+    {
+      "path": "src/solve.py",
+      "size_bytes": 2872,
+      "sha256": "c74c0f15736037b9a8a148e78c814853e6186d57cf9a5951b676addc1b95cc1c"
+    },
+    {
+      "path": "src/validate.py",
+      "size_bytes": 4282,
+      "sha256": "6936bb1d32e8f372dbc878d0f4c35baa6ce1b70af523d9fd18887ae30492e3d9"
+    }
+  ],
+  "numeric_outputs": [
+    {
+      "path": "outputs/claim_evidence.json",
+      "size_bytes": 1562,
+      "sha256": "f2ababc35eeea93b7ab72d4af5f0a0e5968b0c251dd9794cf3dc0527f64f3326"
+    },
+    {
+      "path": "outputs/figure_data.csv",
+      "size_bytes": 2701,
+      "sha256": "457342748b6d766bf9858296d302596ac813173aab47345346c1ca93c943c7f0"
+    },
+    {
+      "path": "outputs/metrics.json",
+      "size_bytes": 394,
+      "sha256": "8fb4629c110de4e68d6da2ea13ba0a85068fcea3ff70c13ea6badd8ce50fbb62"
+    },
+    {
+      "path": "outputs/predictions.csv",
+      "size_bytes": 2701,
+      "sha256": "457342748b6d766bf9858296d302596ac813173aab47345346c1ca93c943c7f0"
+    },
+    {
+      "path": "outputs/validation.json",
+      "size_bytes": 1809,
+      "sha256": "0aabc85f3f42d5d75bea302a72164fd8aca0ed308fc15fd46c3097946307d474"
+    }
+  ],
+  "figures": [
+    {
+      "path": "figures/fit_curve.png",
+      "size_bytes": 132443,
+      "sha256": "50f281f45395cd8b82e36c67ff2f1e8fd6fcf09e5ff80b1089a2a29e11ce12f3"
+    },
+    {
+      "path": "figures/fit_curve.svg",
+      "size_bytes": 44094,
+      "sha256": "55ae60d43473aefd81b105d4143b592a4d8bf380a22f2e9ca7b5d348d3d1dd66"
+    },
+    {
+      "path": "figures/residuals.png",
+      "size_bytes": 99987,
+      "sha256": "7af71f6a3bf17a01e32e14d1979f86234256726c7e9665ab31e921bbe4edf507"
+    },
+    {
+      "path": "figures/residuals.svg",
+      "size_bytes": 35886,
+      "sha256": "c998eb4948fdb6ee480d84c44c8c9f19c19b57d8b07eddfa9f8c00d268666ecb"
+    }
+  ],
+  "tables": [
+    {
+      "path": "tables/metrics.csv",
+      "size_bytes": 185,
+      "sha256": "fb7349ba12acf5b152291f3c57aa0a701485c20de429bf0250b3ef99bf503ced"
+    },
+    {
+      "path": "tables/metrics.tex",
+      "size_bytes": 357,
+      "sha256": "c46ccab564921b2cee217530b7c224464ad254f7c5bc64c323c87b2f7d03222a"
+    },
+    {
+      "path": "tables/parameters.csv",
+      "size_bytes": 117,
+      "sha256": "13f26b19534604b51ffeff43dc73f4944ac840895ed1e6a389e99714b2e6a234"
+    },
+    {
+      "path": "tables/parameters.tex",
+      "size_bytes": 306,
+      "sha256": "9bf23a5e88c5000ad7b321cb0768a309b6a3e5541d35ae8cea40225e0ef7b98c"
+    }
+  ],
+  "latex_sources": [
+    {
+      "path": "paper/main.tex",
+      "size_bytes": 4186,
+      "sha256": "eced1e7b25c98c80bc78b450f33e88d65ca621c5db05c83cada3ce1b667cc28c"
+    }
+  ],
+  "pdf_files": [
+    {
+      "path": "paper/main.pdf",
+      "size_bytes": 315529,
+      "sha256": "774860689a26456c631b161770511ef21068baaa0fa875e6ac0812c49298ad9a"
+    }
+  ],
+  "logs": [
+    {
+      "path": "logs/execution.json",
+      "size_bytes": 2363,
+      "sha256": "f7f0065fcb4743c891b8f2bc4bf5c2f7589370bfc5c6a5b2020378420e217fd2"
+    },
+    {
+      "path": "logs/latex_execution.json",
+      "size_bytes": 597,
+      "sha256": "810b324a223bc80462d19c2985f9c9a641ce5bcc5c26b3940c165755db5d957b"
+    },
+    {
+      "path": "logs/latexmk.log",
+      "size_bytes": 12613,
+      "sha256": "e234092fa38e4492983f21547608693c12d6f60dd56968a5cf6ce005ca3e69d5"
+    },
+    {
+      "path": "logs/python_stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/python_stdout.log",
+      "size_bytes": 158,
+      "sha256": "b2eac54228ff38359be68567c8888c83a90006eed942cffc54bccee9d9478b3b"
+    },
+    {
+      "path": "logs/runtime_site/sitecustomize.py",
+      "size_bytes": 821,
+      "sha256": "116e5c9e878f8be55c7580e5ddcf47b6a5e60dfb9a9cdc39c0a3285518b6a6bc"
+    },
+    {
+      "path": "logs/validator_execution.json",
+      "size_bytes": 2715,
+      "sha256": "36bf37562d98bd80cf7116c745e8fe870f79044fd54f003fa7f5a38d20b351e3"
+    },
+    {
+      "path": "logs/validator_stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/validator_stdout.log",
+      "size_bytes": 273,
+      "sha256": "497038530ebe890d08064d01a84ce440f354e3daa7566d5396c86c9fc76154fd"
+    },
+    {
+      "path": "logs/xelatex.log",
+      "size_bytes": 39069,
+      "sha256": "a4d271f13133f162384d78d31d40367236d7b977cc8f626557ae751bc20b10d8"
+    }
+  ],
+  "reports": [
+    {
+      "path": "human_approval.json",
+      "size_bytes": 198,
+      "sha256": "cda7679d6f454ca01a1c20ade8b8ec495cc41d4bbfaf67cbf753b50998999d91"
+    },
+    {
+      "path": "paper/report_manifest.json",
+      "size_bytes": 510,
+      "sha256": "a378af86a348f8fbd4238212f71689ffd6c62761f4322dd2652fc4e3a1489364"
+    },
+    {
+      "path": "reproducibility_report.json",
+      "size_bytes": 1288,
+      "sha256": "aa0c613bedc7410d59700575a2bd03a44b5677a7551802bd6c0c05d8d1baed76"
+    },
+    {
+      "path": "validation_report.json",
+      "size_bytes": 1044,
+      "sha256": "e9cccddc8de96f1832dcbab8239634099016c5b6be6e31fef92d96d945b9aef3"
+    }
+  ],
+  "reproducibility": {
+    "schema_version": "1.0",
+    "checked_at": "2026-07-11T01:09:48.845653Z",
+    "source_run_id": "run-20260711t010935048946z",
+    "reproduction_run_id": "run-20260711t010942206919z",
+    "float_tolerance": 1e-10,
+    "status": "passed",
+    "classification": "numerically_reproducible",
+    "conditions": {
+      "input_hashes_equal": true,
+      "source_hashes_equal": true,
+      "parameters_within_tolerance": true,
+      "metrics_within_tolerance": true,
+      "predictions_within_tolerance": true,
+      "figure_data_within_tolerance": true,
+      "generated_file_set_equal": true,
+      "python_exit_codes_zero": true,
+      "latex_exit_codes_zero": true,
+      "both_pdfs_valid": true
+    },
+    "parameter_checks": {
+      "intercept": true,
+      "slope": true
+    },
+    "metric_checks": {
+      "mae": true,
+      "max_absolute_error": true,
+      "r2": true,
+      "rmse": true
+    },
+    "binary_comparison": {
+      "figures/fit_curve.png": "binary_identical",
+      "figures/fit_curve.svg": "binary_identical",
+      "figures/residuals.png": "binary_identical",
+      "figures/residuals.svg": "binary_identical",
+      "paper/main.pdf": "binary_diff_content_equivalent"
+    },
+    "note": "Binary differences are not failures when numerical results and plot source data agree and both PDFs validate."
+  }
+}

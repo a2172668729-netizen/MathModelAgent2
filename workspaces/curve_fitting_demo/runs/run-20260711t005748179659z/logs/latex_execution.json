@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "command": [
+    "D:\\texlive\\2026\\bin\\windows\\latexmk.exe",
+    "-xelatex",
+    "-interaction=nonstopmode",
+    "-halt-on-error",
+    "main.tex"
+  ],
+  "working_directory": "paper",
+  "started_at": "2026-07-11T00:57:49.867708Z",
+  "finished_at": "2026-07-11T00:57:54.882063Z",
+  "duration_seconds": 5.011845,
+  "timeout_seconds": 300,
+  "timed_out": false,
+  "exit_code": 0,
+  "status": "passed",
+  "source_path": "paper/main.tex",
+  "pdf_path": "paper/main.pdf",
+  "latexmk_log": "logs/latexmk.log",
+  "xelatex_log": "logs/xelatex.log"
+}

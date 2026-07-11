@@ -1,0 +1,33 @@
+schema_version: "1.0"
+checked_at: "2026-07-10T16:31:00+08:00"
+repositories:
+  - repository: jihe520/MathModelAgent
+    commit: be9c59c1aaa13c3dcb74452ea5cae11dada27589
+    evidence:
+      - path: README.md
+        use: capability and roadmap claims
+      - path: docs/md/License.md
+        use: restrictive custom license terms
+      - path: skills/5writing/SKILL.md
+        use: evidence-driven writing workflow
+    reuse_policy: design_reference_only
+  - repository: op7418/Humanizer-zh
+    commit: 91f3d394db8419c20d67ebe22a96cf8fee0a404b
+    evidence:
+      - path: README.md
+        use: project scope
+      - path: LICENSE
+        use: MIT license confirmation
+      - path: SKILL.md
+        use: writing-pattern taxonomy
+    reuse_policy: adapt_under_mit_with_academic_constraints
+  - repository: leaf-hsiao/cumcmthesis
+    commit: aceadc56666d75a80081694c1538512dbc53cc18
+    evidence:
+      - path: README.md
+        use: historical year and XeLaTeX workflow
+      - path: cumcmthesis.cls
+        use: historical cover fields and layout evidence
+    reuse_policy: historical_reference_only
+    license_status: no_root_license_found
+

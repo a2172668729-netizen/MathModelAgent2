@@ -1,0 +1,9 @@
+schema_version: '1.0'
+assumptions:
+- id: assumption-1
+  statement: 该数据仅用于验证工程闭环，不代表真实竞赛观测。
+  rationale: 数据由项目明确构造并标记为 synthetic。
+  impact: 不得从该结果推断任何现实规律。
+  validation_status: passed
+  evidence_refs:
+  - input/observations.csv

@@ -1,0 +1,10 @@
+schema_version: '1.0'
+status: blocked
+checked_at: '2026-07-10T09:10:54.071109Z'
+source_path: paper/main.tex
+attempts: 0
+structural_check: not_run
+visual_check: not_run
+identity_check: not_run
+message: XeLaTeX is unavailable on PATH; compilation, structural, identity, and visual
+  checks were not run.

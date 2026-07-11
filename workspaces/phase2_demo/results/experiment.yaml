@@ -1,0 +1,30 @@
+id: experiment-linear-demo
+model_id: linear-least-squares
+status: passed
+command:
+- python
+- code/solve.py
+- --workspace
+- .
+random_seed: 0
+parameters:
+  fit_intercept: true
+input_paths:
+- input/observations.csv
+metrics:
+- name: slope
+  value: 2.0
+  split: full
+- name: intercept
+  value: 1.0
+  split: full
+- name: linear_rmse
+  value: 0.0
+  split: full
+  higher_is_better: false
+- name: baseline_rmse
+  value: 2.8284271247461903
+  split: full
+  higher_is_better: false
+artifact_paths:
+- results/experiment.yaml

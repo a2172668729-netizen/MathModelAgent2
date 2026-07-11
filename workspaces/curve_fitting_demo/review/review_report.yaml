@@ -1,0 +1,234 @@
+schema_version: "1.0"
+reviewed_at: "2026-07-11T01:12:19.7939513Z"
+workspace: "workspaces/curve_fitting_demo"
+source_run_id: "run-20260711t010935048946z"
+reviewed_run_id: "run-20260711t010942206919z"
+
+isolation:
+  started_from: "workspaces/curve_fitting_demo/latest_run.json"
+  writer_context_used_as_evidence: false
+  evidence_basis: "current persisted artifacts only"
+  write_scope:
+    - "workspaces/curve_fitting_demo/review/review_report.yaml"
+    - "workspaces/curve_fitting_demo/review/review.md"
+  modeling_artifacts_modified: false
+
+overall:
+  status: "blocked_by_human_gate"
+  technical_assessment: "passed"
+  review_label: "not_assigned"
+  recommended_workspace_state: "AWAITING_HUMAN_APPROVAL"
+  rationale: >-
+    The latest persisted run is technically consistent: major claims trace to
+    structured evidence, formulas match implementation, numerical outputs agree
+    with an independent recomputation, both manifests verify, reproduction passes,
+    and the four-page PDF is structurally and visually sound. FINAL and REVIEWED
+    remain unavailable because the required explicit human approval is pending.
+  open_issue_counts:
+    critical: 1
+    high: 0
+    medium: 0
+    low: 0
+
+checks:
+  - id: "latest-run-routing"
+    status: "passed"
+    evidence:
+      - "latest_run.json"
+    note: "The reviewed run is run-20260711t010942206919z with source run run-20260711t010935048946z."
+  - id: "claims-traceability"
+    status: "passed"
+    evidence:
+      - "runs/run-20260711t010942206919z/outputs/claim_evidence.json"
+      - "runs/run-20260711t010942206919z/outputs/metrics.json"
+      - "runs/run-20260711t010942206919z/outputs/validation.json"
+      - "runs/run-20260711t010942206919z/src/pipeline/latex.py"
+      - "runs/run-20260711t010942206919z/paper/main.tex"
+  - id: "formula-implementation-consistency"
+    status: "passed"
+    evidence:
+      - "runs/run-20260711t010942206919z/src/solve.py"
+      - "runs/run-20260711t010942206919z/src/validate.py"
+      - "runs/run-20260711t010942206919z/paper/main.tex"
+    note: >-
+      The linear model, residual sign, RSS objective, RMSE, MAE, and R-squared
+      formulas match the solver. The separate validator uses closed-form OLS rather
+      than the solver's SciPy curve_fit path.
+  - id: "numeric-table-figure-paper-consistency"
+    status: "passed"
+    evidence:
+      - "runs/run-20260711t010942206919z/outputs/metrics.json"
+      - "runs/run-20260711t010942206919z/outputs/predictions.csv"
+      - "runs/run-20260711t010942206919z/outputs/figure_data.csv"
+      - "runs/run-20260711t010942206919z/tables/parameters.csv"
+      - "runs/run-20260711t010942206919z/tables/metrics.csv"
+      - "runs/run-20260711t010942206919z/paper/main.tex"
+    note: >-
+      Sample size 36, slope 2.5572047133, intercept 3.1335039092, RMSE
+      0.8199391781, MAE 0.6476007559, R-squared 0.9884643818, and maximum absolute
+      error 1.8165114730 agree after declared rounding. Persisted predictions and
+      residuals match independent closed-form recomputation within 1e-8.
+  - id: "residual-analysis"
+    status: "passed"
+    evidence:
+      - "runs/run-20260711t010942206919z/outputs/validation.json"
+      - "runs/run-20260711t010942206919z/outputs/claim_evidence.json"
+      - "runs/run-20260711t010942206919z/paper/main.tex"
+      - "runs/run-20260711t010942206919z/paper/preview/all/page-003.png"
+    note: >-
+      The validator now persists residual mean and population standard deviation.
+      The paper reports the sourced residual mean, gives a limited visual
+      interpretation, and explicitly disclaims homoscedasticity, independence, and
+      sample-out inference from that visual check.
+  - id: "baseline-and-generalization-boundary"
+    status: "passed_with_declared_limits"
+    evidence:
+      - "runs/run-20260711t010942206919z/outputs/validation.json"
+      - "runs/run-20260711t010942206919z/paper/main.tex"
+    note: >-
+      The in-sample linear fit beats the in-sample mean baseline. Sample-out
+      validation and sensitivity analysis are correctly marked not_run, and the
+      paper makes no real-world or sample-out generalization claim.
+  - id: "data-provenance-wording"
+    status: "passed"
+    evidence:
+      - "runs/run-20260711t010942206919z/input/data.csv"
+      - "runs/run-20260711t010942206919z/manifest.json"
+      - "runs/run-20260711t010942206919z/paper/main.tex"
+    note: >-
+      The paper now claims only a fixed, saved, hash-tracked synthetic fixture and
+      explicitly says formal runs do not regenerate observations. It no longer
+      claims that the original data can be reconstructed from the seed alone.
+  - id: "manifest-integrity"
+    status: "passed"
+    evidence:
+      - "runs/run-20260711t010935048946z/manifest.json"
+      - "runs/run-20260711t010942206919z/manifest.json"
+    note: >-
+      All 40 tracked records in the source run and all 41 tracked records in the
+      reproduction run matched their persisted sizes and SHA-256 values.
+  - id: "two-run-reproducibility"
+    status: "passed"
+    evidence:
+      - "reproducibility_report.json"
+      - "runs/run-20260711t010942206919z/reproducibility_report.json"
+    note: >-
+      Inputs, ten Python sources, five numeric outputs, four figure files, four table
+      files, and main.tex agree across runs. The PDF hashes differ, while both PDFs
+      validate and the persisted report classifies them as content-equivalent.
+  - id: "pdf-compilation-and-structure"
+    status: "passed"
+    evidence:
+      - "runs/run-20260711t010942206919z/logs/latex_execution.json"
+      - "runs/run-20260711t010942206919z/logs/xelatex.log"
+      - "runs/run-20260711t010942206919z/validation_report.json"
+      - "runs/run-20260711t010942206919z/paper/main.pdf"
+    note: >-
+      The recorded LaTeX exit code is zero. The PDF has four pages, a valid header,
+      no missing files, undefined references, undefined citations, overfull boxes,
+      or underfull boxes.
+  - id: "reviewer-visual-inspection"
+    status: "passed"
+    evidence:
+      - "runs/run-20260711t010942206919z/paper/preview/all/page-001.png"
+      - "runs/run-20260711t010942206919z/paper/preview/all/page-002.png"
+      - "runs/run-20260711t010942206919z/paper/preview/all/page-003.png"
+      - "runs/run-20260711t010942206919z/paper/preview/all/page-004.png"
+    note: >-
+      All four current previews were inspected. Text, formulas, tables, charts,
+      headers, page numbers, and section transitions are legible with no clipping,
+      overlap, black boxes, or missing glyphs.
+  - id: "anonymity-and-path-leakage"
+    status: "passed"
+    evidence:
+      - "runs/run-20260711t010942206919z/paper/main.tex"
+      - "runs/run-20260711t010942206919z/paper/main.pdf"
+      - "runs/run-20260711t010942206919z/validation_report.json"
+    note: >-
+      The visible author is anonymous, PDF Author metadata is Anonymous, and no
+      workspace absolute path or configured user identity appears in the paper.
+  - id: "format-provenance"
+    status: "passed"
+    evidence:
+      - "runs/run-20260711t010942206919z/paper/report_manifest.json"
+    note: "The report is explicitly an internal ctexart engineering report, not an official competition template."
+  - id: "human-final-approval"
+    status: "blocked"
+    evidence:
+      - "latest_run.json"
+      - "runs/run-20260711t010942206919z/manifest.json"
+      - "runs/run-20260711t010942206919z/human_approval.json"
+      - "runs/run-20260711t010942206919z/validation_report.json"
+
+closed_prior_findings:
+  - id: "RV-002"
+    status: "closed"
+    category: "residual_analysis"
+    evidence:
+      - "runs/run-20260711t010942206919z/outputs/validation.json"
+      - "runs/run-20260711t010942206919z/paper/main.tex"
+      - "runs/run-20260711t010942206919z/paper/preview/all/page-003.png"
+    closure: >-
+      Residual diagnostics are persisted and the paper now provides a sourced,
+      bounded interpretation rather than only displaying the plot.
+  - id: "RV-003"
+    status: "closed"
+    category: "data_provenance"
+    evidence:
+      - "runs/run-20260711t010942206919z/paper/main.tex"
+      - "runs/run-20260711t010942206919z/manifest.json"
+    closure: >-
+      The paper narrows the claim to a fixed saved and hash-tracked fixture and does
+      not claim seed-only reconstruction of the original observations.
+  - id: "RV-004"
+    status: "closed"
+    category: "pdf_format"
+    evidence:
+      - "runs/run-20260711t010942206919z/logs/xelatex.log"
+      - "runs/run-20260711t010942206919z/validation_report.json"
+      - "runs/run-20260711t010942206919z/paper/preview/all/page-003.png"
+    closure: "The current LaTeX log and validation report contain zero overfull and underfull box warnings, with no visible layout defect."
+
+issues:
+  - id: "RV-001"
+    severity: "critical"
+    category: "human_gate"
+    blocking: true
+    status: "open"
+    title: "Explicit human page-by-page acceptance and final approval remain pending"
+    evidence:
+      - "latest_run.json: state is AWAITING_HUMAN_APPROVAL"
+      - "runs/run-20260711t010942206919z/manifest.json: human_approval_status is pending"
+      - "runs/run-20260711t010942206919z/human_approval.json: status is pending"
+      - "runs/run-20260711t010942206919z/validation_report.json: visual_check is awaiting_human_approval"
+    finding: >-
+      Automated structural checks and this isolated AI review do not satisfy the
+      repository's mandatory human checkpoint. Marking the run FINAL or REVIEWED
+      now would bypass an explicit gate.
+    remedy: >-
+      A human must inspect all four pages of the current final PDF, confirm anonymity
+      and submission suitability, and record explicit final approval through the
+      repository's approved workflow.
+
+not_run_or_blocked:
+  - id: "sample-out-validation"
+    status: "not_run"
+    reason: "The synthetic fixture is evaluated in-sample and the paper makes no sample-out claim."
+  - id: "sensitivity-analysis"
+    status: "not_run"
+    reason: "No model-selection, causal, or robustness claim in this fixture depends on sensitivity analysis."
+  - id: "official-competition-template-check"
+    status: "not_run"
+    reason: "The report explicitly claims only an internal engineering format."
+  - id: "human-page-by-page-acceptance"
+    status: "blocked"
+    reason: "Only a human can satisfy the explicit final approval gate."
+
+review_execution:
+  pipeline_rerun: false
+  solver_rerun: false
+  validator_rerun: false
+  latex_recompile: false
+  independent_read_only_numeric_recomputation: true
+  persisted_pdf_previews_inspected: 4
+

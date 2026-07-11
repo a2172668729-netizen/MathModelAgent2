@@ -1,0 +1,29 @@
+schema_version: '1.0'
+experiment_path: results/experiment.yaml
+status: passed
+checked_at: '2026-07-10T09:08:31.747254Z'
+findings:
+- id: finding-consistency
+  category: consistency
+  severity: critical
+  status: passed
+  evidence_path: results/experiment.yaml
+  message: 独立重算的斜率、截距和 RMSE 与求解产物一致。
+- id: finding-baseline
+  category: robustness
+  severity: error
+  status: passed
+  evidence_path: results/experiment.yaml
+  message: 线性模型 RMSE 不高于均值基线。
+- id: finding-boundary
+  category: boundary
+  severity: info
+  status: passed
+  evidence_path: input/observations.csv
+  message: 观测数量不少于 2，且 x 方差非零。
+- id: finding-generalization
+  category: robustness
+  severity: warning
+  status: not_run
+  evidence_path: input/observations.csv
+  message: 合成示例不用于现实泛化，因此未执行样本外验证。

@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "checked_at": "2026-07-11T00:57:47.146375Z",
+  "status": "passed",
+  "pdf_path": "paper/main.pdf",
+  "size_bytes": 313245,
+  "sha256": "2c536a64fabb6821266ac710b840ed107570f898cbeb3b1b1440999dbeea2c28",
+  "header_valid": true,
+  "page_count": 4,
+  "serious_log_findings": {
+    "latex_errors": 0,
+    "missing_files": 0,
+    "undefined_references": 0,
+    "undefined_citations": 0
+  },
+  "box_warnings": {
+    "overfull_boxes": 1,
+    "underfull_boxes": 0
+  },
+  "identity_hits": [],
+  "absolute_path_hits": [],
+  "preview": {
+    "page_count": 4,
+    "all_pages": [
+      "paper/preview/all/page-001.png",
+      "paper/preview/all/page-002.png",
+      "paper/preview/all/page-003.png",
+      "paper/preview/all/page-004.png"
+    ],
+    "selected_pages": {
+      "first": "paper/preview/first-page-001.png",
+      "main_figure": "paper/preview/main_figure-page-003.png",
+      "last": "paper/preview/last-page-004.png"
+    }
+  },
+  "visual_check": "awaiting_human_approval"
+}

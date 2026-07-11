@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "claims": {
+    "sample_size": {
+      "value": 36,
+      "source": "outputs/metrics.json"
+    },
+    "slope": {
+      "value": 2.5572047133215374,
+      "source": "outputs/metrics.json"
+    },
+    "intercept": {
+      "value": 3.1335039091502574,
+      "source": "outputs/metrics.json"
+    },
+    "rmse": {
+      "value": 0.8199391780580442,
+      "source": "outputs/metrics.json"
+    },
+    "mae": {
+      "value": 0.6476007558983397,
+      "source": "outputs/metrics.json"
+    },
+    "r2": {
+      "value": 0.9884643817615159,
+      "source": "outputs/metrics.json"
+    },
+    "max_absolute_error": {
+      "value": 1.8165114730344847,
+      "source": "outputs/metrics.json"
+    },
+    "model_equation": {
+      "value": "y_hat = slope * x + intercept",
+      "source": "src/solve.py"
+    },
+    "figure_fit": {
+      "source": "outputs/figure_data.csv",
+      "artifact": "figures/fit_curve.png"
+    },
+    "figure_residuals": {
+      "source": "outputs/figure_data.csv",
+      "artifact": "figures/residuals.png"
+    },
+    "parameter_table": {
+      "source": "outputs/metrics.json",
+      "artifact": "tables/parameters.tex"
+    },
+    "metric_table": {
+      "source": "outputs/metrics.json",
+      "artifact": "tables/metrics.tex"
+    },
+    "generalization_limit": {
+      "source": "outputs/validation.json",
+      "status": "not_run"
+    }
+  }
+}

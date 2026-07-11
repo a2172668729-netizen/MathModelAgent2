@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "status": "aborted",
+  "exit_code": null,
+  "repository_requested": "https://mirror.ctan.org/systems/texlive/tlnet",
+  "repository_selected": "https://mirrors.ibiblio.org/pub/mirrors/CTAN/systems/texlive/tlnet",
+  "target": "D:/texlive/2026",
+  "reason": "Automatic redirect selected a distant mirror and projected the full scheme at many hours; the child installer process was stopped, the partial target was path-checked and removed, and installation was restarted from an official CTAN mirror in China.",
+  "log_path": "artifacts/environment_check/logs/texlive-install.log"
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Model Validation"
+  short_description: "Validate model behavior, metrics, sensitivity, and consistency"
+  default_prompt: "Use $validation to independently verify the workspace model results and record findings."

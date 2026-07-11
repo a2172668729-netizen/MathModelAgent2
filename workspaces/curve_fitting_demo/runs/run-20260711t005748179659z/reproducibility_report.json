@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "checked_at": "2026-07-11T00:57:56.151496Z",
+  "source_run_id": "run-20260711t005740670249z",
+  "reproduction_run_id": "run-20260711t005748179659z",
+  "float_tolerance": 1e-10,
+  "status": "passed",
+  "classification": "numerically_reproducible",
+  "conditions": {
+    "input_hashes_equal": true,
+    "source_hashes_equal": true,
+    "parameters_within_tolerance": true,
+    "metrics_within_tolerance": true,
+    "predictions_within_tolerance": true,
+    "figure_data_within_tolerance": true,
+    "generated_file_set_equal": true,
+    "python_exit_codes_zero": true,
+    "latex_exit_codes_zero": true,
+    "both_pdfs_valid": true
+  },
+  "parameter_checks": {
+    "intercept": true,
+    "slope": true
+  },
+  "metric_checks": {
+    "mae": true,
+    "max_absolute_error": true,
+    "r2": true,
+    "rmse": true
+  },
+  "binary_comparison": {
+    "figures/fit_curve.png": "binary_identical",
+    "figures/fit_curve.svg": "binary_identical",
+    "figures/residuals.png": "binary_identical",
+    "figures/residuals.svg": "binary_identical",
+    "paper/main.pdf": "binary_diff_content_equivalent"
+  },
+  "note": "Binary differences are not failures when numerical results and plot source data agree and both PDFs validate."
+}

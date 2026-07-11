@@ -1,0 +1,17 @@
+id: observations
+path: input/observations.csv
+media_type: text/csv
+sha256: 9426fdf0879873d1786fbcf59a2b1d09b6c97fe750c0e836db066b240c56590c
+size_bytes: 30
+source: project-authored synthetic phase-two fixture
+license: CC0-style project fixture; not external competition data
+columns:
+- x
+- y
+units:
+  x: dimensionless
+  y: dimensionless
+quality_notes:
+- five complete rows
+- exact relation y = 2x + 1
+- not real-world evidence

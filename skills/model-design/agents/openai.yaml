@@ -1,0 +1,4 @@
+interface:
+  display_name: "Model Design"
+  short_description: "Compare baselines and candidate mathematical modeling approaches"
+  default_prompt: "Use $model-design to propose and compare traceable candidate models for this workspace."

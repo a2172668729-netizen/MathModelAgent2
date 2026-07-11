@@ -1,0 +1,13 @@
+id: linear-least-squares
+name: 一元线性最小二乘
+purpose: 拟合 y = ax + b 并与均值基线比较
+assumptions:
+- assumption-1
+required_dataset_ids:
+- observations
+strengths:
+- 参数可解释
+- 可独立重算
+limitations:
+- 该合成样本不能证明现实泛化能力
+is_baseline: false

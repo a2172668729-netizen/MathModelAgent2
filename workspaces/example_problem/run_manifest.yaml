@@ -1,0 +1,21 @@
+schema_version: '1.0'
+run_id: initialization
+stage: CREATED
+status: passed
+started_at: '2026-07-10T08:50:04.219432Z'
+finished_at: '2026-07-10T08:50:04.219432Z'
+command:
+- mmagent
+- init
+- example_problem
+python_version: 3.12.13
+platform: Windows-11-10.0.26100-SP0
+input_hashes: {}
+parameters: {}
+artifact_paths:
+- problem_spec.yaml
+- assumptions.yaml
+- assumptions.md
+- state.yaml
+- run_manifest.yaml
+- decisions.md

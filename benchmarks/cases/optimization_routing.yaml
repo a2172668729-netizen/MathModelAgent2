@@ -1,0 +1,12 @@
+schema_version: "1.0"
+case_type: optimization_and_routing
+content_status: specification_only
+required_evidence:
+  - 决策变量、目标函数和完整约束
+  - 可行性检查与小规模已知解基线
+  - 求解器状态、界或最优性差距
+  - 参数扰动下的可行性和成本变化
+prohibited_shortcuts:
+  - 把可行解直接称为全局最优解
+  - 忽略容量、时间窗或连通性约束
+

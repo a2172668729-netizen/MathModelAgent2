@@ -1,0 +1,12 @@
+schema_version: "1.0"
+case_type: evaluation_and_decision
+content_status: specification_only
+required_evidence:
+  - 指标方向、单位和标准化规则
+  - 权重来源与替代权重敏感性
+  - 简单等权基线
+  - 排名稳定性和并列处理
+prohibited_shortcuts:
+  - 把主观权重描述为客观事实
+  - 只给排名而不解释指标贡献
+

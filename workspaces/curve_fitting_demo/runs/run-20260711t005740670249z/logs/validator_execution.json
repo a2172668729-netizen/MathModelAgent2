@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "run_id": "run-20260711t005740670249z",
+  "python_executable": "D:\\Projects\\MathModelAgent2\\.venv\\Scripts\\python.exe",
+  "python_version": "3.12.13",
+  "command": [
+    "D:\\Projects\\MathModelAgent2\\.venv\\Scripts\\python.exe",
+    "src/validate.py",
+    "--run-root",
+    "."
+  ],
+  "working_directory": ".",
+  "environment": {
+    "inherited_keys": [
+      "COMSPEC",
+      "NUMBER_OF_PROCESSORS",
+      "PATH",
+      "PATHEXT",
+      "PROCESSOR_ARCHITECTURE",
+      "SYSTEMDRIVE",
+      "SYSTEMROOT",
+      "TEMP",
+      "TMP",
+      "WINDIR"
+    ],
+    "set_keys": [
+      "HOME",
+      "USERPROFILE",
+      "PYTHONHASHSEED",
+      "PYTHONDONTWRITEBYTECODE",
+      "PYTHONPATH",
+      "MPLBACKEND",
+      "MPLCONFIGDIR",
+      "MMAGENT_NETWORK_DISABLED",
+      "MMAGENT_RUN_ROOT"
+    ],
+    "network_policy": "python_socket_blocked_by_sitecustomize",
+    "output_policy": "solver cwd and declared output root are the current run workspace"
+  },
+  "started_at": "2026-07-11T00:57:41.584403Z",
+  "finished_at": "2026-07-11T00:57:41.983633Z",
+  "duration_seconds": 0.400417,
+  "timeout_seconds": 120,
+  "exit_code": 0,
+  "timed_out": false,
+  "status": "passed",
+  "failure_reason": null,
+  "source": {
+    "path": "src/validate.py",
+    "sha256": "07b851cd2b09598f88c73e21e33fb678543fadaa3cf1c0a42a5d974866618463"
+  },
+  "inputs": [
+    {
+      "path": "input/data.csv",
+      "size_bytes": 1148,
+      "sha256": "3e71a5205c255876a9b6eba2da71944d810b33cc1d82bf6457174aa30e4b3c9e"
+    },
+    {
+      "path": "outputs/metrics.json",
+      "size_bytes": 394,
+      "sha256": "8fb4629c110de4e68d6da2ea13ba0a85068fcea3ff70c13ea6badd8ce50fbb62"
+    },
+    {
+      "path": "outputs/predictions.csv",
+      "size_bytes": 2701,
+      "sha256": "457342748b6d766bf9858296d302596ac813173aab47345346c1ca93c943c7f0"
+    }
+  ],
+  "produced_outputs": [
+    {
+      "path": "outputs/figure_data.csv",
+      "size_bytes": 2701,
+      "sha256": "457342748b6d766bf9858296d302596ac813173aab47345346c1ca93c943c7f0"
+    },
+    {
+      "path": "outputs/metrics.json",
+      "size_bytes": 394,
+      "sha256": "8fb4629c110de4e68d6da2ea13ba0a85068fcea3ff70c13ea6badd8ce50fbb62"
+    },
+    {
+      "path": "outputs/predictions.csv",
+      "size_bytes": 2701,
+      "sha256": "457342748b6d766bf9858296d302596ac813173aab47345346c1ca93c943c7f0"
+    },
+    {
+      "path": "outputs/validation.json",
+      "size_bytes": 1670,
+      "sha256": "97fb574cb6f60f0980e4c8a390c80d554941c0d5cc21104818d94abd6c84a346"
+    }
+  ],
+  "stdout_path": "logs/validator_stdout.log",
+  "stderr_path": "logs/validator_stderr.log"
+}

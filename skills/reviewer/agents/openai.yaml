@@ -1,0 +1,5 @@
+interface:
+  display_name: "Independent Modeling Reviewer"
+  short_description: "Review persisted modeling artifacts with isolated evidence"
+  default_prompt: "Use $reviewer to independently inspect the persisted workspace and write prioritized review issues."
+

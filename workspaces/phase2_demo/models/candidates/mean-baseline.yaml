@@ -1,0 +1,12 @@
+id: mean-baseline
+name: 均值基线
+purpose: 提供不使用 x 的简单比较基线
+assumptions: []
+required_dataset_ids:
+- observations
+strengths:
+- 确定性
+- 易复现
+limitations:
+- 忽略 x 与 y 的关系
+is_baseline: true

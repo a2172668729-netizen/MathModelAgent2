@@ -1,0 +1,14 @@
+schema_version: '1.0'
+problem_id: example_problem
+title: 待填写赛题
+source_files: []
+subproblems:
+- id: problem-1
+  prompt: 待根据原始赛题填写
+  objective_ids: []
+  constraint_ids: []
+  deliverables:
+  - 待确认
+objectives: []
+constraints: []
+variables: []

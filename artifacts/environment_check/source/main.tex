@@ -1,0 +1,37 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\title{MathModelAgent 中文 XeLaTeX 环境验收}
+\author{匿名环境测试}
+\date{}
+\begin{document}
+\maketitle
+
+这是用于验证 TeX Live、XeLaTeX、中文字体、数学公式、表格和图片工具链的环境测试文档，
+不属于正式数学建模论文。
+
+\section{数学公式}
+线性模型写为
+\[
+  y=ax+b, \qquad \mathrm{RMSE}=\sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat y_i)^2}.
+\]
+
+\section{表格}
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+参数 & 验收数值 \\
+\midrule
+斜率 $a$ & 2.500 \\
+截距 $b$ & 4.000 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{实际生成图片}
+\begin{center}
+\includegraphics[width=0.72\linewidth]{acceptance-image.png}
+\end{center}
+
+\end{document}
