@@ -43,3 +43,4 @@ artifacts/python_pipeline_precheck*/
 artifacts/environment_check/installer/install-tl-windows.exe
 artifacts/environment_check/installer/install-tl.zip
 artifacts/environment_check/installer/install-tl/
+benchmark_results/

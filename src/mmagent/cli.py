@@ -21,6 +21,8 @@ from mmagent.core_pipeline import (
 )
 from mmagent.environment import discover_tool, inspect_git
 from mmagent.benchmark import load_scorecard, write_scorecard
+from mmagent.artifacts import atomic_json, atomic_text
+from mmagent.benchmark_runner import compare_suite_reports, load_cases, run_suite, select_cases
 from mmagent.input_audit import audit_inputs
 from mmagent.models import Status
 from mmagent.pdf import PdfPipelineError
@@ -55,8 +57,25 @@ def _build_parser() -> argparse.ArgumentParser:
     advance.add_argument("stage", choices=[stage.value for stage in Stage])
     result_macros = subparsers.add_parser("results-macros")
     result_macros.add_argument("workspace", type=Path)
+    scorecard = subparsers.add_parser("benchmark-scorecard")
+    scorecard.add_argument("workspace", type=Path)
     benchmark = subparsers.add_parser("benchmark")
-    benchmark.add_argument("workspace", type=Path)
+    benchmark_actions = benchmark.add_subparsers(dest="benchmark_action", required=True)
+    benchmark_run = benchmark_actions.add_parser("run")
+    selection = benchmark_run.add_mutually_exclusive_group(required=True)
+    selection.add_argument("--case")
+    selection.add_argument("--tag")
+    selection.add_argument("--all", action="store_true")
+    selection.add_argument("--smoke", action="store_true")
+    selection.add_argument("--full", action="store_true")
+    benchmark_run.add_argument("--repeat", type=int)
+    benchmark_run.add_argument("--output", type=Path, default=Path("benchmark_results"))
+    benchmark_run.add_argument("--cases-root", type=Path, default=Path("benchmarks/cases"))
+    benchmark_compare = benchmark_actions.add_parser("compare")
+    benchmark_compare.add_argument("first", type=Path)
+    benchmark_compare.add_argument("second", type=Path)
+    benchmark_compare.add_argument("--output", type=Path)
+    benchmark_actions.add_parser("list")
     demo = subparsers.add_parser("demo")
     demo.add_argument("target", help="'curve-fitting' or a legacy Phase 2 workspace path")
     demo.add_argument("--workspace", type=Path, help="output workspace for the curve-fitting demo")
@@ -199,7 +218,7 @@ def main(argv: list[str] | None = None) -> int:
             return 1
         print(f"PASS: {target}")
         return 0
-    if args.command == "benchmark":
+    if args.command == "benchmark-scorecard":
         try:
             scorecard = load_scorecard(args.workspace)
             _, target = write_scorecard(args.workspace, scorecard)
@@ -209,6 +228,50 @@ def main(argv: list[str] | None = None) -> int:
         print(f"PASS: {target}")
         print("Subjective scores remain human-only; blank scores were not filled.")
         return 0
+    if args.command == "benchmark":
+        repo_root = Path.cwd().resolve()
+        if args.benchmark_action == "list":
+            try:
+                cases = load_cases(repo_root / "benchmarks" / "cases")
+            except (OSError, ValueError) as exc:
+                print(f"ERROR: {exc}")
+                return 1
+            for case, _ in cases.values():
+                print(f"{case.id}\t{case.difficulty}\t{','.join(case.tags)}\t{'smoke' if case.smoke else 'full'}\t{case.expected_outcome}")
+            return 0
+        if args.benchmark_action == "compare":
+            try:
+                comparison = compare_suite_reports(args.first, args.second)
+            except (OSError, ValueError) as exc:
+                print(f"ERROR: {exc}")
+                return 1
+            output = args.output or args.second.parent / f"comparison-{args.first.parent.name}-to-{args.second.parent.name}.json"
+            atomic_json(output, comparison)
+            atomic_text(output.with_suffix(".md"), "# Benchmark comparison\n\n" + f"Status: **{comparison['status']}**\n\n" + "\n".join(f"- {item}" for item in comparison["regressions"]) + "\n")
+            print(f"Comparison: {output}")
+            print(f"Status: {comparison['status']}")
+            return 1 if comparison["status"] == "regression" else 0
+        try:
+            cases = load_cases(args.cases_root)
+            mode, selected = select_cases(
+                cases,
+                case_id=args.case,
+                tag=args.tag,
+                all_cases=args.all,
+                smoke=args.smoke,
+                full=args.full,
+            )
+            repetitions = args.repeat if args.repeat is not None else (2 if args.full else 1)
+            if repetitions < 1:
+                raise ValueError("--repeat must be at least 1")
+            report, result_root = run_suite(repo_root, selected, mode=mode, output_root=args.output, repetitions=repetitions)
+        except (OSError, ValueError) as exc:
+            print(f"ERROR: {exc}")
+            return 1
+        print(f"Benchmark: {result_root}")
+        print(f"Status: {report.status}")
+        print(f"Cases: {report.totals}")
+        return 0 if report.status == "passed" else 1
     if args.command == "init":
         try:
             result = initialize_workspace(args.workspace)

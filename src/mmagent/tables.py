@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import math
+import re
 from pathlib import Path
 from typing import Any
 
@@ -47,12 +48,14 @@ def dataframe_to_latex_table(
     missing: str = "--",
 ) -> Path:
     """Write a complete booktabs table while escaping user-facing text."""
+    if not re.fullmatch(r"[A-Za-z0-9:._/-]+", label):
+        raise ValueError("LaTeX label contains unsupported characters")
     alignments = ["r" if pd.api.types.is_numeric_dtype(frame[column]) else "l" for column in frame.columns]
     lines = [
         r"\begin{table}[H]",
         r"\centering",
         rf"\caption{{{latex_escape(caption)}}}",
-        rf"\label{{{latex_escape(label)}}}",
+        rf"\label{{{label}}}",
         rf"\begin{{tabular}}{{{''.join(alignments)}}}",
         r"\toprule",
         " & ".join(latex_escape(str(column)) for column in frame.columns) + r" \\",
