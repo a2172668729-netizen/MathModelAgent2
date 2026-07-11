@@ -1,0 +1,32 @@
+schema_version: "1.0"
+id: comprehensive_city_planning
+title: 城市群韧性与发展规划综合题
+description: 中文长题面，多城市多年数据，综合评价、趋势分析、多图和多级表格。
+difficulty: hard
+tags: [comprehensive, chinese-long-form, evaluation, forecasting, multi-figure, multi-table]
+timeout_seconds: 180
+random_seed: 20260711
+solver_profile: comprehensive
+expected_modeling_steps:
+  - 审计五城市八年度面板数据的完整性
+  - 对效益型和成本型指标分别标准化并计算 2024 年综合得分
+  - 估计每个城市经济指数的描述性趋势
+  - 生成至少四张图和三组层级表格
+  - 在 PDF 中保留合成数据和非因果解释限制
+hard_checks: [task_completed, python_really_executed, independent_numeric_validation, figures_exist_and_valid, tables_complete, latex_compiled, pdf_structurally_valid, reviewer_isolated]
+numeric_expectations:
+  - {path: metrics.city_count, minimum: 5, maximum: 5}
+  - {path: metrics.latest_year, minimum: 2024, maximum: 2024}
+  - {path: metrics.top_score, minimum: 0.55, maximum: 0.85}
+  - {path: metrics.mean_economic_slope, minimum: 1.1, maximum: 1.7}
+structural_expectations:
+  required_files: [input/data.csv, outputs/metrics.json, outputs/details.csv, outputs/claims.json, figures/figure_01.png, figures/figure_02.png, figures/figure_03.png, figures/figure_04.png, tables/table_01.csv, tables/table_01.tex, tables/table_02.csv, tables/table_02.tex, tables/table_03.csv, tables/table_03.tex, paper/main.tex, paper/main.pdf, validation_report.json, review/review_report.json]
+  minimum_figures: 4
+  minimum_tables: 3
+  minimum_pdf_pages: 3
+  maximum_pdf_pages: 12
+  required_pdf_text: [城市群韧性与发展规划综合题, 图表证据, 限制]
+prohibited_errors:
+  - 图表或正文数字与 outputs/metrics.json 不一致
+  - 只生成单层汇总而遗漏城市明细或描述统计
+  - 将合成数据结果冒充真实政策结论

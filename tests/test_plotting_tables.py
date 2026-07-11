@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 import pandas as pd
+import pytest
 
 from mmagent.plotting import bar_chart, heatmap_chart, line_chart, scatter_chart
 from mmagent.tables import dataframe_to_latex_table, latex_escape
@@ -26,7 +27,7 @@ def test_latex_table_booktabs_escape_precision_and_missing_values(tmp_path: Path
         frame,
         tmp_path / "table.tex",
         caption="参数_表&格",
-        label="tab:special",
+        label="tab:special_table",
         digits=4,
     )
 
@@ -35,4 +36,11 @@ def test_latex_table_booktabs_escape_precision_and_missing_values(tmp_path: Path
     assert "A\\&B" in text and "50\\%" in text
     assert "名称\\_含\\&符号" in text
     assert "1.2346" in text and "--" in text
+    assert r"\label{tab:special_table}" in text
+    assert r"\label{tab:special\_table}" not in text
     assert latex_escape(r"a_b%") == r"a\_b\%"
+
+
+def test_latex_table_rejects_unsafe_label(tmp_path: Path) -> None:
+    with pytest.raises(ValueError, match="unsupported characters"):
+        dataframe_to_latex_table(pd.DataFrame({"x": [1]}), tmp_path / "bad.tex", caption="ok", label="tab:{bad}")

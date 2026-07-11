@@ -1,0 +1,29 @@
+schema_version: "1.0"
+id: evaluation_resilience
+title: 方案韧性综合评价
+description: 同时含效益型和成本型指标的加权评价与排序。
+difficulty: easy
+tags: [evaluation, decision, multi-criteria]
+timeout_seconds: 120
+random_seed: 20260711
+solver_profile: evaluation
+solver_parameters: {weights: [0.35, 0.25, 0.25, 0.15]}
+expected_modeling_steps:
+  - 识别指标方向并进行无量纲标准化
+  - 使用声明的权重计算综合得分
+  - 输出完整排序和得分贡献证据
+hard_checks: [task_completed, python_really_executed, independent_numeric_validation, tables_complete, referenced_files_exist]
+numeric_expectations:
+  - {path: metrics.top_score, minimum: 0.68, maximum: 0.82}
+  - {path: metrics.winner_index, minimum: 1, maximum: 5}
+  - {path: metrics.alternatives, minimum: 6, maximum: 6}
+structural_expectations:
+  required_files: [input/data.csv, outputs/metrics.json, outputs/details.csv, figures/figure_01.png, figures/figure_02.png, tables/table_01.csv, tables/table_02.csv, paper/main.pdf]
+  minimum_figures: 2
+  minimum_tables: 2
+  minimum_pdf_pages: 2
+  maximum_pdf_pages: 8
+  required_pdf_text: [方案韧性综合评价, 关键结果]
+prohibited_errors:
+  - 混淆效益型与成本型指标方向
+  - 只给排名而不保存方案得分

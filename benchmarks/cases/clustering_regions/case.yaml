@@ -1,0 +1,28 @@
+schema_version: "1.0"
+id: clustering_regions
+title: 区域样本聚类
+description: 三个分离簇的确定性 K-means 聚类。
+difficulty: medium
+tags: [clustering, classification, unsupervised]
+timeout_seconds: 120
+random_seed: 20260711
+solver_profile: clustering
+expected_modeling_steps:
+  - 检查特征尺度并采用确定性中心初始化
+  - 迭代分配样本与更新中心直至收敛
+  - 输出标签、簇规模和簇内平方和
+hard_checks: [task_completed, python_really_executed, independent_numeric_validation, reproduction_consistent]
+numeric_expectations:
+  - {path: metrics.cluster_count, minimum: 3, maximum: 3}
+  - {path: metrics.inertia, minimum: 5, maximum: 30}
+  - {path: metrics.minimum_cluster_size, minimum: 15, maximum: 18}
+structural_expectations:
+  required_files: [input/data.csv, outputs/metrics.json, outputs/details.csv, figures/figure_01.png, figures/figure_02.png, tables/table_01.csv, tables/table_02.csv, paper/main.pdf]
+  minimum_figures: 2
+  minimum_tables: 2
+  minimum_pdf_pages: 2
+  maximum_pdf_pages: 8
+  required_pdf_text: [区域样本聚类, 任务与方法]
+prohibited_errors:
+  - 未固定初始化导致重复运行标签结构不稳定
+  - 产生空簇或遗漏样本却仍报告成功

@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "recorded_at": "2026-07-11T13:28:20Z",
+  "source_run_id": "benchmark-20260711t132624924206z",
+  "source_tree_sha256": "6666c6ecb0f27a0c8548d892d826b4a9d38b7fe364df3c0bc720ed381c86eba1",
+  "status": "passed",
+  "mode": "full",
+  "repetitions_per_case": 2,
+  "duration_seconds": 115.064385,
+  "test_suite": {
+    "status": "passed",
+    "tests_passed": 69,
+    "duration_seconds": 23.40
+  },
+  "smoke": {
+    "run_id": "benchmark-20260711t132909999650z",
+    "status": "passed",
+    "cases_passed": 2,
+    "duration_seconds": 18.35071
+  },
+  "negative_diagnostic": {
+    "run_id": "benchmark-20260711t132856753953z",
+    "status": "expected_failure_observed",
+    "duration_seconds": 2.79757
+  },
+  "cases": [
+    {
+      "id": "clustering_regions",
+      "status": "passed",
+      "quality_score": 100.0,
+      "duration_seconds": 16.310096,
+      "metrics": {"cluster_count": 3, "inertia": 14.125059191261043, "minimum_cluster_size": 18}
+    },
+    {
+      "id": "comprehensive_city_planning",
+      "status": "passed",
+      "quality_score": 100.0,
+      "duration_seconds": 18.212319,
+      "metrics": {"city_count": 5, "latest_year": 2024, "top_score": 0.6, "mean_economic_slope": 1.3837425159747665, "winner_code": 0}
+    },
+    {
+      "id": "data_quality_regression",
+      "status": "passed",
+      "quality_score": 100.0,
+      "duration_seconds": 16.003078,
+      "metrics": {"missing_count": 4, "outlier_count": 3, "clean_rows": 47, "slope": 3.000558129733848, "intercept": 4.859059452651736}
+    },
+    {
+      "id": "evaluation_resilience",
+      "status": "passed",
+      "quality_score": 100.0,
+      "duration_seconds": 16.094414,
+      "metrics": {"top_score": 0.7058333333333333, "winner_index": 1, "alternatives": 6}
+    },
+    {
+      "id": "forecasting_seasonal",
+      "status": "passed",
+      "quality_score": 100.0,
+      "duration_seconds": 15.539538,
+      "metrics": {"holdout_rmse": 0.48591818382208185, "next_period_forecast": 43.947178744240446, "train_rows": 48}
+    },
+    {
+      "id": "ode_logistic_growth",
+      "status": "passed",
+      "quality_score": 100.0,
+      "duration_seconds": 15.496453,
+      "metrics": {"growth_rate": 0.2621639036032067, "carrying_capacity": 98.50091747559352, "fit_rmse": 0.6693936406460059}
+    },
+    {
+      "id": "optimization_production",
+      "status": "passed",
+      "quality_score": 100.0,
+      "duration_seconds": 16.276184,
+      "metrics": {"objective_value": 1800.0, "labor_used": 80.0, "material_used": 75.0, "solver_success": 1}
+    }
+  ],
+  "pdf_visual_review": {
+    "status": "passed",
+    "pages_reviewed": 16,
+    "scope": "attempt-2 of every full benchmark case",
+    "findings": []
+  },
+  "regression_comparison": "no_regression",
+  "unresolved_limitations": [
+    "Benchmark fixtures do not prove autonomous modeling on arbitrary competition problems.",
+    "Reviewer isolation is process-and-copy isolation, not an operating-system security sandbox.",
+    "Automated PDF heuristics do not replace a future submission owner's final approval."
+  ]
+}

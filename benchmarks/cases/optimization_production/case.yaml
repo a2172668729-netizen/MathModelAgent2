@@ -1,0 +1,29 @@
+schema_version: "1.0"
+id: optimization_production
+title: 多产品生产优化
+description: 含资源约束和变量上界的线性规划。
+difficulty: medium
+tags: [optimization, linear-programming]
+timeout_seconds: 120
+random_seed: 20260711
+solver_profile: optimization
+expected_modeling_steps:
+  - 定义非负决策变量、利润目标和资源约束
+  - 使用线性规划求解并核对求解器状态
+  - 回代检查人工、材料和产能可行性
+hard_checks: [task_completed, python_really_executed, independent_numeric_validation, no_untraceable_results, state_machine_terminal]
+numeric_expectations:
+  - {path: metrics.objective_value, minimum: 1799.999999, maximum: 1800.000001}
+  - {path: metrics.labor_used, minimum: 70, maximum: 80.000001}
+  - {path: metrics.material_used, minimum: 65, maximum: 75.000001}
+  - {path: metrics.solver_success, minimum: 1, maximum: 1}
+structural_expectations:
+  required_files: [input/data.csv, outputs/metrics.json, outputs/details.csv, outputs/claims.json, figures/figure_01.png, figures/figure_02.png, tables/table_01.csv, tables/table_02.tex, paper/main.pdf]
+  minimum_figures: 2
+  minimum_tables: 2
+  minimum_pdf_pages: 2
+  maximum_pdf_pages: 8
+  required_pdf_text: [多产品生产优化, 关键结果]
+prohibited_errors:
+  - 忽略资源约束或产品产能上限
+  - 求解失败时仍宣称得到全局最优解

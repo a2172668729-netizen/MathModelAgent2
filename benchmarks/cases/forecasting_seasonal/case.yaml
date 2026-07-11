@@ -1,0 +1,30 @@
+schema_version: "1.0"
+id: forecasting_seasonal
+title: 季节性需求预测
+description: 有趋势和周期项的时间序列样本外预测。
+difficulty: medium
+tags: [forecasting, time-series, regression, smoke]
+smoke: true
+timeout_seconds: 120
+random_seed: 20260711
+solver_profile: forecasting
+expected_modeling_steps:
+  - 按时间顺序划分训练集和最后 12 期测试集
+  - 拟合趋势项与正余弦季节项
+  - 在未参与拟合的测试集计算 RMSE
+  - 生成下一期预测、诊断表和趋势图
+hard_checks: [task_completed, python_really_executed, independent_numeric_validation, latex_compiled, pdf_structurally_valid, reproduction_consistent]
+numeric_expectations:
+  - {path: metrics.holdout_rmse, minimum: 0.1, maximum: 1.0}
+  - {path: metrics.next_period_forecast, minimum: 42.5, maximum: 45.5}
+  - {path: metrics.train_rows, minimum: 48, maximum: 48}
+structural_expectations:
+  required_files: [input/data.csv, outputs/metrics.json, outputs/details.csv, outputs/claims.json, figures/figure_01.png, figures/figure_02.png, tables/table_01.csv, tables/table_01.tex, paper/main.tex, paper/main.pdf, oracle_validation.json, validation_report.json, review/review_report.json]
+  minimum_figures: 2
+  minimum_tables: 2
+  minimum_pdf_pages: 2
+  maximum_pdf_pages: 8
+  required_pdf_text: [季节性需求预测, 任务与方法, 关键结果]
+prohibited_errors:
+  - 使用测试区间调整训练参数造成未来信息泄漏
+  - 仅报告训练误差或伪造预测值

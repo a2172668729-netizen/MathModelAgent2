@@ -1,0 +1,26 @@
+schema_version: "1.0"
+id: intentional_failure_diagnostic
+title: 故意失败诊断夹具
+description: 求解器主动非零退出，用于验证失败恢复和诊断证据。
+difficulty: easy
+tags: [negative, intentional-failure, diagnostics]
+expected_outcome: failed
+timeout_seconds: 30
+random_seed: 20260711
+solver_profile: intentional_failure
+expected_modeling_steps:
+  - 生成最小输入
+  - 触发可识别的非零退出
+  - 保存完整日志、失败状态和诊断报告
+hard_checks: [intentional_failure_observed, failure_is_diagnostic]
+numeric_expectations: []
+structural_expectations:
+  required_files: [input/data.csv, diagnostic.json, attempt_state.json, logs/solver_execution.json, logs/solver_stderr.log]
+  minimum_figures: 0
+  minimum_tables: 0
+  minimum_pdf_pages: 1
+  maximum_pdf_pages: 1
+  required_pdf_text: []
+prohibited_errors:
+  - 将非零退出静默标记为通过
+  - 丢弃失败日志或伪造后续 PDF 产物

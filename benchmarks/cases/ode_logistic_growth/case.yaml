@@ -1,0 +1,29 @@
+schema_version: "1.0"
+id: ode_logistic_growth
+title: Logistic 机理增长模型
+description: 数值积分与非线性最小二乘结合的微分方程参数估计。
+difficulty: hard
+tags: [ode, mechanism, nonlinear]
+timeout_seconds: 180
+random_seed: 20260711
+solver_profile: ode
+expected_modeling_steps:
+  - 明确 Logistic 状态方程、初值和参数边界
+  - 通过数值积分得到各观测时点预测
+  - 以残差最小化估计增长率和环境容量
+  - 检查拟合误差和参数合理范围
+hard_checks: [task_completed, python_really_executed, independent_numeric_validation, latex_compiled, pdf_structurally_valid]
+numeric_expectations:
+  - {path: metrics.growth_rate, minimum: 0.23, maximum: 0.28}
+  - {path: metrics.carrying_capacity, minimum: 96, maximum: 104}
+  - {path: metrics.fit_rmse, minimum: 0.1, maximum: 1.2}
+structural_expectations:
+  required_files: [input/data.csv, outputs/metrics.json, outputs/details.csv, figures/figure_01.png, figures/figure_02.png, tables/table_01.csv, tables/table_02.tex, paper/main.pdf]
+  minimum_figures: 2
+  minimum_tables: 2
+  minimum_pdf_pages: 2
+  maximum_pdf_pages: 8
+  required_pdf_text: [Logistic, 机理增长模型, 关键结果]
+prohibited_errors:
+  - 用静态曲线替代微分方程数值积分却不说明
+  - 参数越界或积分失败后仍报告通过
